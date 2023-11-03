@@ -1,0 +1,46 @@
+<div class="modal">
+  <div class="modal__body">
+    <form
+      class="single-form"
+      (submit)="onCreatePlayer($event)"
+      [formGroup]="newPlayerForm"
+    >
+      <label class="single-form__label" for="player-name">Tu Nombre</label>
+      <input
+        id="player-name"
+        class="single-form__input"
+        formControlName="playerName"
+        type="text"
+      />
+      <div class="single-form__button-group">
+        <div class="button-group__section">
+          <label for="jugador" class="single-form__label">Jugador</label>
+          <input
+            type="radio"
+            id="jugador"
+            name="gameMode"
+            value="Jugador"
+            formControlName="gameMode"
+          />
+        </div>
+        <div class="button-group__section">
+          <label for="espectador" class="single-form__label">Espectador</label>
+          <input
+            type="radio"
+            id="espectador"
+            name="gameMode"
+            value="Espectador"
+            formControlName="gameMode"
+          />
+        </div>
+      </div>
+      <button
+        class="single-form__button"
+        type="submit"
+        [disabled]="newPlayerForm.invalid"
+      >
+        Continuar
+      </button>
+    </form>
+  </div>
+</div>

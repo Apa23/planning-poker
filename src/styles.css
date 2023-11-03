@@ -1,1 +1,147 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+:root {
+  --primary-color: #613291;
+  --primary-color-light: #bb65ff;
+  --primary-color-dark1: #340371;
+  --primary-color-dark2: #250152;
+  --secundary-color: #9479e8;
+  --secundary-color-light: #bdbdff;
+  --secundary-color-dark: #615578;
+}
+
+html {
+  background: var(--primary-color-dark1);
+  background: radial-gradient(
+    circle,
+    var(--primary-color-dark1) 0%,
+    var(--secundary-color-dark) 100%
+  );
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo-pragma {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(2px);
+  padding: 10%;
+}
+
+.modal__body {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: var(--primary-color-dark2);
+  border-radius: 1rem;
+  border: 1px solid var(--primary-color-light);
+  padding: 3rem 4rem;
+  box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
+  -webkit-box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
+  -moz-box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
+}
+
+.single-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.single-form__input {
+  appearance: none;
+  background-color: var(--primary-color-dark1);
+  opacity: 0.8;
+  border-radius: 2rem;
+  border: 1px solid var(--primary-color-light);
+  padding: 0.5rem 2rem;
+  margin: 0.5rem 0;
+}
+
+.single-form__button {
+  max-width: 200px;
+  color: var(--primary-color);
+  background-color: white;
+  font-weight: 700;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  margin: 2rem auto 0 auto;
+}
+
+.single-form__button:disabled {
+  background-color: var(--secundary-color-dark);
+  color: rgb(162, 162, 162);
+  cursor: not-allowed;
+}
+
+.single-form__button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-group__section {
+  display: flex;
+  align-items: center;
+  margin: 0 1.5rem;
+}
+
+.button-group__section input[type="radio"] {
+  appearance: none;
+  background-color: var(--primary-color-dark1);
+  border: 1px solid var(--primary-color-light);
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.button-group__section input[type="radio"]:checked {
+  padding: 0.2rem;
+}
+
+.button-group__section input[type="radio"]:checked::before {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  content: "";
+  background-color: var(--primary-color-light);
+  border: 1px solid var(--primary-color-light);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.button-group__section label {
+  margin-right: 0.5rem;
+}
