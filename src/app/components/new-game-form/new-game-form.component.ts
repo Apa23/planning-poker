@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./new-game-form.component.css'],
 })
 export class NewGameFormComponent {
-  @Output() gameName: string = '';
+  @Output() gameName: EventEmitter<string> = new EventEmitter<string>();
 
   submitted = false;
 
@@ -15,14 +15,12 @@ export class NewGameFormComponent {
     Validators.required,
     Validators.minLength(5),
     Validators.maxLength(20),
-    Validators.pattern('^[a-zA-Z0-9](?=(?:\\D*\\d){0,3}\\D*$).*$'),
+    Validators.pattern('^[a-zA-Z0-9](?=(?:\\D*\\d){0,3}\\D*$)[a-zA-Z0-9]*$'),
   ]);
 
   onCreateGame(event: Event) {
     event.preventDefault();
     this.submitted = true;
-    this.gameName = this.gameNameControl.value || '';
-    console.log(`Creating game: ${this.gameName}`);
-    console.log(this.gameNameControl.errors);
+    this.gameName.emit(this.gameNameControl.value || '');
   }
 }

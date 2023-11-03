@@ -1,6 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+:root {
+  --primary-color: #613291;
+  --primary-color-light: #bb65ff;
+  --primary-color-dark1: #340371;
+  --primary-color-dark2: #250152;
+  --secondary-color: #9479e8;
+  --secondary-color-light: #bdbdff;
+  --secondary-color-dark: #615578;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,22 +19,12 @@
   color: white;
 }
 
-:root {
-  --primary-color: #613291;
-  --primary-color-light: #bb65ff;
-  --primary-color-dark1: #340371;
-  --primary-color-dark2: #250152;
-  --secundary-color: #9479e8;
-  --secundary-color-light: #bdbdff;
-  --secundary-color-dark: #615578;
-}
-
 html {
   background: var(--primary-color-dark1);
   background: radial-gradient(
     circle,
     var(--primary-color-dark1) 0%,
-    var(--secundary-color-dark) 100%
+    var(--secondary-color-dark) 100%
   );
   height: 100vh;
   display: flex;
@@ -39,11 +39,15 @@ html {
 }
 
 .modal {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
+  background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(2px);
   padding: 10%;
 }
@@ -94,7 +98,7 @@ html {
 }
 
 .single-form__button:disabled {
-  background-color: var(--secundary-color-dark);
+  background-color: var(--secondary-color-dark);
   color: rgb(162, 162, 162);
   cursor: not-allowed;
 }

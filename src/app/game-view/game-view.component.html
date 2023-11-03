@@ -1,1 +1,29 @@
-<app-new-player-form></app-new-player-form>
+<main>
+  <div class="table">
+    <div class="table__player-section">
+      <div class="table__player-card"></div>
+      <div class="table__player-card"></div>
+      <div class="table__player-card"></div>
+    </div>
+    <div class="table__player-section">
+      <div class="table__player-card"></div>
+      <div class="table__body">
+        <div class="table__body-border">
+          <div class="table__body-inner"></div>
+        </div>
+      </div>
+      <div class="table__player-card"></div>
+    </div>
+    <div class="table__player-section">
+      <div class="table__player-card"></div>
+      <div class="table__player-card"></div>
+      <div class="table__player-card"></div>
+    </div>
+  </div>
+</main>
+
+<app-new-player-form
+  class="modal"
+  *ngIf="displayNewPlayerForm"
+  (displayNewPlayerForm)="onDisplayNewPlayerForm($event)"
+></app-new-player-form>
