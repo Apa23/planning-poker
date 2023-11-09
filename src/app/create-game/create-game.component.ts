@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GameDataService } from '../services/game-data.service';
 
 @Component({
   selector: 'app-create-game',
@@ -8,7 +9,10 @@ import { Component } from '@angular/core';
 export class CreateGameComponent {
   gameName: string = '';
 
+  constructor(private gameDataService: GameDataService) {}
+
   onCreateGame(name: string) {
     this.gameName = name;
+    this.gameDataService.setGameName(this.gameName);
   }
 }

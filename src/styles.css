@@ -32,14 +32,53 @@ html {
   align-items: center;
 }
 
+header {
+  width: 100vw;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo-area {
+  display: flex;
+  align-items: center;
+  font-size: 0.5rem;
+  width: 33%;
+}
+
+.header__user-area {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 33%;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__side-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+}
+
+.footer__middle-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #logo-pragma {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
+  height: 80px;
 }
 
 .modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -148,4 +187,16 @@ html {
 
 .button-group__section label {
   margin-right: 0.5rem;
+}
+
+.outlined-button {
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 10px;
+  margin: 0 1rem;
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
 }

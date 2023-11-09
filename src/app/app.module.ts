@@ -8,6 +8,7 @@ import { NewGameFormComponent } from './components/new-game-form/new-game-form.c
 import { CreateGameComponent } from './create-game/create-game.component';
 import { GameViewComponent } from './game-view/game-view.component';
 import { NewPlayerFormComponent } from './components/new-player-form/new-player-form.component';
+import { GameDataService } from './services/game-data.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { NewPlayerFormComponent } from './components/new-player-form/new-player-
     NewPlayerFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
-  providers: [],
+  providers: [GameDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

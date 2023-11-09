@@ -1,1 +1,9 @@
-<app-new-game-form (gameName)="onCreateGame(gameName)"></app-new-game-form>
+<header>
+  <div class="header__logo-area">
+    <img src="../assets/logo-pragma.png" alt="logo-pragma" id="logo-pragma" />
+    <h1>Crear partida</h1>
+  </div>
+</header>
+<main>
+  <app-new-game-form (gameName)="onCreateGame($event)"></app-new-game-form>
+</main>

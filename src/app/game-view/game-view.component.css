@@ -1,9 +1,33 @@
+.game-title {
+  font-size: 1.5rem;
+}
+
+.player-name {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+#user-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  background-color: var(--secondary-color-light);
+  border-radius: 50%;
+}
+
+#user-logo h4 {
+  color: var(--primary-color-dark1);
+}
+
 .table__body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 385px;
-  width: 685px;
+  height: 325px;
+  width: 575px;
   border: 2px solid var(--secondary-color);
   border-radius: 400px;
   -webkit-border-radius: 400px;
@@ -19,8 +43,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 335px;
-  width: 635px;
+  height: 285px;
+  width: 535px;
   border: 2px solid var(--secondary-color-light);
   border-radius: 400px;
   -webkit-border-radius: 400px;
@@ -30,8 +54,8 @@
 }
 
 .table__body-inner {
-  height: 300px;
-  width: 600px;
+  height: 250px;
+  width: 500px;
   background-color: var(--primary-color-dark2);
   border: 1px solid var(--secondary-color);
   border-radius: 300px;
@@ -42,4 +66,56 @@
   box-shadow: 0px -1px 11px -2px var(--primary-color-dark2);
   -webkit-box-shadow: 0px -1px 11px -2px var(--primary-color-dark2);
   -moz-box-shadow: 0px -1px 11px -2px var(--primary-color-dark2);
+}
+
+.table__player {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5rem;
+}
+.table__player-section {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  padding: 10px;
+  background-color: var(--secondary-color-light);
+  border-radius: 50%;
+}
+
+.admin-card h4 {
+  font-size: 1.2rem;
+  color: var(--primary-color-dark1);
+}
+
+.table__player-card {
+  height: 70px;
+  width: 40px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+.number-card {
+  height: 70px;
+  width: 40px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
 }

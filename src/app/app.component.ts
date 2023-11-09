@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'planning-poker';
-
-  changeTitle() {
-    this.title = 'Planning Poker';
-  }
 }
