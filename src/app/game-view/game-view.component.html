@@ -4,75 +4,75 @@
   </div>
   <h2 class="game-title">{{ gameName }}</h2>
   <div class="header__user-area">
-    <div id="user-logo">
-      <h4>{{ hostInitials }}</h4>
+    <div id="user-logo" class="flex-center">
+      <h3>{{ playerInitials }}</h3>
     </div>
     <button class="outlined-button">Invitar jugadores</button>
   </div>
 </header>
 
 <main class="table">
-  <section class="table__player-section">
-    <div class="table__player">
+  <section class="table__player-section flex-center">
+    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
       <div class="table__player-card"></div>
       <p class="player-name">player #</p>
     </div>
-    <div class="table__player">
+    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
       <div class="table__player-card"></div>
       <p class="player-name">player #</p>
     </div>
-    <div class="table__player">
+    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
       <div class="table__player-card"></div>
       <p class="player-name">player #</p>
     </div>
   </section>
-  <section class="table__player-section">
-    <div class="table__player">
+  <section class="table__player-section flex-center">
+    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
       <div class="table__player-card"></div>
       <p class="player-name">player #</p>
     </div>
-    <div class="table__body">
-      <div class="table__body-border">
+    <div class="table__body flex-center">
+      <div class="table__body-border flex-center">
         <div class="table__body-inner"></div>
       </div>
     </div>
-    <div class="table__player">
+    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
       <div class="table__player-card"></div>
       <p class="player-name">player #</p>
     </div>
   </section>
-  <section class="table__player-section">
-    <div class="table__player">
+  <section class="table__player-section flex-center">
+    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
       <div class="table__player-card"></div>
       <p class="player-name">player #</p>
     </div>
-    <div class="table__player">
-      <div class="admin-card">
-        <h4>{{ hostInitials }}</h4>
+    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
+      <div class="admin-card flex-center">
+        <h3>{{ playerInitials }}</h3>
       </div>
-      <p class="player-name">{{ hostName }}</p>
+      <p class="player-name">{{ playerName }}</p>
     </div>
-    <div class="table__player">
+    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
       <div class="table__player-card"></div>
-      <p class="player-name">player #</p>
+      <p class="card-caption">player #</p>
     </div>
   </section>
 </main>
-<footer>
-  <section class="footer__side-section"></section>
-  <section class="footer__middle-section">
-    <div class="number-card"></div>
-    <div class="number-card"></div>
-    <div class="number-card"></div>
-    <div class="number-card"></div>
-    <div class="number-card"></div>
-    <div class="number-card"></div>
-    <div class="number-card"></div>
+<footer class="flex-center">
+  <section class="footer__side-section flex-center"></section>
+  <section class="footer__middle-section flex-center">
+    <div class="number-card" *ngFor="let number of playedNumbers">
+      <div class="number-card__border flex-center">
+        <h2>{{ number }}</h2>
+      </div>
+      <p class="card-caption"># votos</p>
+    </div>
   </section>
-  <section class="footer__side-section"></section>
+  <section class="footer__side-section flex-center"></section>
 </footer>
 <app-new-player-form
-  class="modal"
+  class="modal flex-center"
   *ngIf="displayNewPlayerForm"
+  (newPlayer)="onCreatePlayer($event)"
   (displayNewPlayerForm)="onDisplayNewPlayerForm($event)"
 ></app-new-player-form>

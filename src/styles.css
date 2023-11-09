@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+/* Variables */
 :root {
   --primary-color: #613291;
   --primary-color-light: #bb65ff;
@@ -11,6 +12,14 @@
   --secondary-color-dark: #615578;
 }
 
+/* Common styles */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -29,11 +38,12 @@ html {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
+/* Header styles */
+
 header {
-  width: 100vw;
+  width: 90vw;
   padding: 0 1rem;
   display: flex;
   align-items: center;
@@ -54,60 +64,19 @@ header {
   width: 33%;
 }
 
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer__side-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 33%;
-}
-
-.footer__middle-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #logo-pragma {
   height: 80px;
 }
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(2px);
-  padding: 10%;
+/* Footer styles */
+footer {
+  padding: 2rem 0;
 }
 
-.modal__body {
-  width: 100%;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  background-color: var(--primary-color-dark2);
-  border-radius: 1rem;
-  border: 1px solid var(--primary-color-light);
-  padding: 3rem 4rem;
-  box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
-  -webkit-box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
-  -moz-box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
+.footer__side-section {
+  width: 33%;
 }
 
+/* Forms styles */
 .single-form {
   display: flex;
   flex-direction: column;
@@ -142,11 +111,7 @@ footer {
   cursor: not-allowed;
 }
 
-.single-form__button-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* Button styles */
 
 .button-group__section {
   display: flex;

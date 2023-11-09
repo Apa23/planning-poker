@@ -3,3 +3,8 @@ export enum GAMEMODE {
   ESPECTADOR = 'espactador',
   NONE = '',
 }
+
+export interface Player {
+  name: string;
+  mode: GAMEMODE;
+}

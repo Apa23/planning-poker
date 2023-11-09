@@ -1,0 +1,14 @@
+/* Modal styles */
+.modal__body {
+  width: 100%;
+  max-width: 500px;
+  flex-direction: column;
+  position: absolute;
+  background-color: var(--primary-color-dark2);
+  border-radius: 1rem;
+  border: 1px solid var(--primary-color-light);
+  padding: 3rem 4rem;
+  box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
+  -webkit-box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
+  -moz-box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
+}
