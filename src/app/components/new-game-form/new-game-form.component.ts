@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-game-form',
@@ -18,9 +19,12 @@ export class NewGameFormComponent {
     Validators.pattern('^[a-zA-Z0-9](?=(?:\\D*\\d){0,3}\\D*$)[a-zA-Z0-9]*$'),
   ]);
 
+  constructor(private router: Router) {}
+
   onCreateGame(event: Event) {
     event.preventDefault();
     this.submitted = true;
     this.gameName.emit(this.gameNameControl.value || '');
+    this.router.navigate(['/game']);
   }
 }
