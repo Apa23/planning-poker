@@ -9,6 +9,7 @@ import { CreateGameComponent } from './create-game/create-game.component';
 import { GameViewComponent } from './game-view/game-view.component';
 import { NewPlayerFormComponent } from './components/new-player-form/new-player-form.component';
 import { GameDataService } from './services/game-data.service';
+import { GameCardComponent } from './components/game-card/game-card.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { GameDataService } from './services/game-data.service';
     CreateGameComponent,
     GameViewComponent,
     NewPlayerFormComponent,
+    GameCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [GameDataService],

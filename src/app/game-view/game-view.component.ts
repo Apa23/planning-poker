@@ -13,6 +13,9 @@ export class GameViewComponent {
   playerName: string = '';
   playerInitials: string = '';
   playedNumbers: number[] = [1, 2, 3, 4, 5, 6, 7];
+  avarage: number =
+    this.playedNumbers.map((n) => n).reduce((a, b) => a + b) /
+    this.playedNumbers.length;
 
   constructor(private gameDataService: GameDataService) {
     this.gameName = this.gameDataService.getGameName();

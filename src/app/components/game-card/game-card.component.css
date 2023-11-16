@@ -1,0 +1,9 @@
+.card__border {
+  height: 100%;
+  border: 2px solid var(--secondary-color);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}

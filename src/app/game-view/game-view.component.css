@@ -94,8 +94,7 @@
   margin: 0 0.5rem;
 }
 
-.table__player-card,
-.number-card__border {
+.table__player-card {
   height: 70px;
   width: 40px;
   border: 2px solid var(--secondary-color);
@@ -106,7 +105,13 @@
   -o-border-radius: 0.5rem;
 }
 
-.number-card__border {
-  height: 90px;
-  width: 50px;
+.number-card {
+  height: 120px;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__result {
+  font-size: 3rem;
 }

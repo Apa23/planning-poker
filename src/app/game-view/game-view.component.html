@@ -58,17 +58,21 @@
     </div>
   </section>
 </main>
-<footer class="flex-center">
+<footer class="flex-center" *ngIf="!displayNewPlayerForm">
   <section class="footer__side-section flex-center"></section>
   <section class="footer__middle-section flex-center">
-    <div class="number-card" *ngFor="let number of playedNumbers">
-      <div class="number-card__border flex-center">
-        <h2>{{ number }}</h2>
-      </div>
-      <p class="card-caption"># votos</p>
-    </div>
+    <ng-container *ngFor="let number of playedNumbers">
+      <app-game-card
+        innerText="{{ number }}"
+        footerText="# votos"
+        class="card number-card"
+      />
+    </ng-container>
   </section>
-  <section class="footer__side-section flex-center"></section>
+  <section class="footer__side-section flex-center">
+    <p>Promedio</p>
+    <h2 class="footer__result">{{ avarage }}</h2>
+  </section>
 </footer>
 <app-new-player-form
   class="modal flex-center"

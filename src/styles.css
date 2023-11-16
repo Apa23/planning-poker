@@ -74,6 +74,7 @@ footer {
 
 .footer__side-section {
   width: 33%;
+  flex-direction: column;
 }
 
 /* Forms styles */
