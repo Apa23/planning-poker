@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GameDataService } from '../services/game-data.service';
-import { Player } from '../models/game.model';
+import { playerInfoInterface } from 'src/config/interfaces/player.interface';
 
 @Component({
   selector: 'app-game-view',
@@ -25,7 +25,7 @@ export class GameViewComponent {
     this.displayNewPlayerForm = display;
   }
 
-  onCreatePlayer(player: Player) {
+  onCreatePlayer(player: playerInfoInterface) {
     this.playerName = player.name;
     this.playerInitials =
       player.name[0].toUpperCase() + player.name[1].toUpperCase();

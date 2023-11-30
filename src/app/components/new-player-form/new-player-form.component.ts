@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { GAMEMODE, Player } from 'src/app/models/game.model';
+import { playerInfoInterface } from 'src/config/interfaces/player.interface';
+import { GAMEMODE } from 'src/config/enums/game.enum';
 
 @Component({
   selector: 'app-new-player-form',
@@ -8,7 +9,8 @@ import { GAMEMODE, Player } from 'src/app/models/game.model';
   styleUrls: ['./new-player-form.component.css'],
 })
 export class NewPlayerFormComponent {
-  @Output() newPlayer: EventEmitter<Player> = new EventEmitter<Player>();
+  @Output() newPlayer: EventEmitter<playerInfoInterface> =
+    new EventEmitter<playerInfoInterface>();
   @Output() displayNewPlayerForm: EventEmitter<boolean> =
     new EventEmitter<boolean>();
 
