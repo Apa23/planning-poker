@@ -52,7 +52,6 @@ export class GameViewComponent {
   };
 
   checkSelectionDone() {
-    console.log(this.players);
     this.players.every((player) => {
       if (player.gameMode === GAMEMODE.ESPECTADOR) {
         return true;

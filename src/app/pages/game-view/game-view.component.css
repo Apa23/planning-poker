@@ -86,15 +86,6 @@
   padding: 0.5rem 2rem;
 }
 
-.admin-card {
-  height: 60px;
-  width: 60px;
-  padding: 10px;
-  background-color: var(--secondary-color-light);
-  border-radius: 50%;
-}
-
-.admin-card h3,
 #user-logo h3 {
   font-size: 1.2rem;
   color: var(--primary-color-dark1);

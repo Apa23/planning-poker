@@ -1,5 +1,5 @@
 export enum GAMEMODE {
   JUGADOR = 'jugador',
-  ESPECTADOR = 'espactador',
+  ESPECTADOR = 'espectador',
   NONE = '',
 }
