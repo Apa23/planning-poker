@@ -1,0 +1,22 @@
+.table__player {
+  flex-direction: column;
+  margin: 0 5rem;
+}
+
+.table__player-card {
+  height: 70px;
+  width: 40px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+.table__player-card.selected {
+  background-color: var(--primary-color-light);
+  box-shadow: 0px -1px 11px -2px var(--secondary-color-dark2);
+  -webkit-box-shadow: 0px -1px 11px -2px var(--secondary-color-dark2);
+  -moz-box-shadow: 0px -1px 11px -2px var(--secondary-color-dark2);
+}

@@ -31,6 +31,8 @@ export class NewPlayerFormComponent {
     const player = {
       name: this.newPlayerForm.get('playerName')?.value || '',
       mode: this.newPlayerForm.get('gameMode')?.value as GAMEMODE,
+      selected: false,
+      selectedNumber: null,
     };
     this.newPlayer.emit(player);
     this.displayNewPlayerForm.emit(false);
