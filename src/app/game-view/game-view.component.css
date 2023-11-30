@@ -29,7 +29,7 @@
 .table__body {
   height: 325px;
   width: 575px;
-  border: 2px solid var(--secondary-color);
+  border: 2px solid var(--secondary-color-dark2);
   border-radius: 400px;
   -webkit-border-radius: 400px;
   -moz-border-radius: 400px;
@@ -76,6 +76,16 @@
   margin: 1rem 0;
 }
 
+.reveal-button {
+  background-color: var(--secondary-color-dark2);
+  color: white;
+  font-weight: 500;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+}
+
 .admin-card {
   height: 60px;
   width: 60px;
@@ -103,6 +113,13 @@
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
+}
+
+.table__player-card.selected {
+  background-color: var(--primary-color-light);
+  box-shadow: 0px -1px 11px -2px var(--secondary-color-dark2);
+  -webkit-box-shadow: 0px -1px 11px -2px var(--secondary-color-dark2);
+  -moz-box-shadow: 0px -1px 11px -2px var(--secondary-color-dark2);
 }
 
 .number-card {

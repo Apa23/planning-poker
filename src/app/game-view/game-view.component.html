@@ -12,53 +12,79 @@
 </header>
 
 <main class="table">
+  <!-- Players cards -->
   <section class="table__player-section flex-center">
-    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
-      <div class="table__player-card"></div>
-      <p class="player-name">player #</p>
-    </div>
-    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
-      <div class="table__player-card"></div>
-      <p class="player-name">player #</p>
-    </div>
-    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
-      <div class="table__player-card"></div>
-      <p class="player-name">player #</p>
-    </div>
+    <ng-container *ngFor="let player of players.slice(0, 3)">
+      <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
+        <div
+          class="table__player-card"
+          [ngClass]="player.selected ? 'selected' : ''"
+        ></div>
+        <p class="player-name">{{ player.name }}</p>
+      </div>
+    </ng-container>
   </section>
   <section class="table__player-section flex-center">
-    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
-      <div class="table__player-card"></div>
-      <p class="player-name">player #</p>
-    </div>
+    <ng-container *ngFor="let player of players.slice(3, 4)">
+      <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
+        <div
+          class="table__player-card"
+          [ngClass]="player.selected ? 'selected' : ''"
+        ></div>
+        <p class="player-name">{{ player.name }}</p>
+      </div>
+    </ng-container>
+
+    <!-- Table -->
     <div class="table__body flex-center">
       <div class="table__body-border flex-center">
-        <div class="table__body-inner"></div>
+        <div class="table__body-inner flex-center">
+          <button class="reveal-button" type="button" *ngIf="selectionDone">
+            Revelar cartas
+          </button>
+        </div>
       </div>
     </div>
-    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
-      <div class="table__player-card"></div>
-      <p class="player-name">player #</p>
-    </div>
+
+    <!-- Players cards -->
+    <ng-container *ngFor="let player of players.slice(4, 5)">
+      <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
+        <div
+          class="table__player-card"
+          [ngClass]="player.selected ? 'selected' : ''"
+        ></div>
+        <p class="player-name">{{ player.name }}</p>
+      </div>
+    </ng-container>
   </section>
   <section class="table__player-section flex-center">
-    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
-      <div class="table__player-card"></div>
-      <p class="player-name">player #</p>
-    </div>
+    <ng-container *ngFor="let player of players.slice(5, 6)">
+      <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
+        <div
+          class="table__player-card"
+          [ngClass]="player.selected ? 'selected' : ''"
+        ></div>
+        <p class="player-name">{{ player.name }}</p>
+      </div>
+    </ng-container>
     <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
       <div class="admin-card flex-center">
         <h3>{{ playerInitials }}</h3>
       </div>
       <p class="player-name">{{ playerName }}</p>
     </div>
-    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
-      <div class="table__player-card"></div>
-      <p class="card-caption">player #</p>
-    </div>
+    <ng-container *ngFor="let player of players.slice(6)">
+      <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
+        <div
+          class="table__player-card"
+          [ngClass]="player.selected ? 'selected' : ''"
+        ></div>
+        <p class="player-name">{{ player.name }}</p>
+      </div>
+    </ng-container>
   </section>
 </main>
-<footer class="flex-center" *ngIf="!displayNewPlayerForm">
+<footer class="flex-center" *ngIf="revealResult">
   <section class="footer__side-section flex-center"></section>
   <section class="footer__middle-section flex-center">
     <ng-container *ngFor="let number of playedNumbers">
