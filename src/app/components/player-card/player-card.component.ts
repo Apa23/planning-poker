@@ -8,4 +8,6 @@ import { Component, Input } from '@angular/core';
 export class PlayerCardComponent {
   @Input() name: string = '';
   @Input() selected: boolean = false;
+  @Input() selectedNumber: number | null = 0;
+  @Input() onSelectionChange: (name: string) => void = () => {};
 }

@@ -10,7 +10,6 @@ import { playersList } from 'src/config/data/players';
 })
 export class GameViewComponent {
   players: playerInfoInterface[] = playersList;
-
   displayNewPlayerForm: boolean = true;
   selectionDone: boolean = false;
   revealResult: boolean = false;
@@ -34,16 +33,25 @@ export class GameViewComponent {
       player.name[0].toUpperCase() + player.name[1].toUpperCase();
   }
 
-  checkSelectionDone() {
-    this.players.some((player) => {
-      if (!player.selected) {
-        return false;
-      } else {
-        return true;
+  public onSelectionChange = (name: string) => {
+    this.players.forEach((player) => {
+      if (player.name === name) {
+        player.selected = !player.selected;
+        player.selected
+          ? (player.selectedNumber = Math.floor(Math.random() * 10) + 1)
+          : (player.selectedNumber = 0);
       }
+    });
+
+    this.checkSelectionDone();
+  };
+
+  checkSelectionDone() {
+    this.players.every((player) => {
+      return player.selected;
     })
-      ? (this.selectionDone = false)
-      : (this.selectionDone = true);
+      ? (this.selectionDone = true)
+      : (this.selectionDone = false);
   }
 
   onDisplayResult() {
@@ -54,9 +62,10 @@ export class GameViewComponent {
         return 0;
       }
     });
-    this.avarage =
+    this.avarage = (
       this.playedNumbers.map((n) => n).reduce((a, b) => a + b) /
-      this.playedNumbers.length;
+      this.playedNumbers.length
+    ).toFixed(2) as any;
     this.revealResult = true;
   }
 }

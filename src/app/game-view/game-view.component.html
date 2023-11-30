@@ -18,6 +18,8 @@
       <app-player-card
         [name]="player.name"
         [selected]="player.selected"
+        [selectedNumber]="player.selectedNumber"
+        [onSelectionChange]="onSelectionChange"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>
@@ -27,6 +29,8 @@
       <app-player-card
         [name]="player.name"
         [selected]="player.selected"
+        [selectedNumber]="player.selectedNumber"
+        [onSelectionChange]="onSelectionChange"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>
@@ -35,7 +39,12 @@
     <div class="table__body flex-center">
       <div class="table__body-border flex-center">
         <div class="table__body-inner flex-center">
-          <button class="reveal-button" type="button" *ngIf="selectionDone">
+          <button
+            class="reveal-button"
+            type="button"
+            *ngIf="selectionDone"
+            (click)="onDisplayResult()"
+          >
             Revelar cartas
           </button>
         </div>
@@ -47,6 +56,8 @@
       <app-player-card
         [name]="player.name"
         [selected]="player.selected"
+        [selectedNumber]="player.selectedNumber"
+        [onSelectionChange]="onSelectionChange"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>
@@ -56,6 +67,8 @@
       <app-player-card
         [name]="player.name"
         [selected]="player.selected"
+        [selectedNumber]="player.selectedNumber"
+        [onSelectionChange]="onSelectionChange"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>
@@ -69,6 +82,8 @@
       <app-player-card
         [name]="player.name"
         [selected]="player.selected"
+        [selectedNumber]="player.selectedNumber"
+        [onSelectionChange]="onSelectionChange"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>
