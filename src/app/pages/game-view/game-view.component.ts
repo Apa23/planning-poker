@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { GameDataService } from '../services/game-data.service';
+import { GameDataService } from '../../services/game-data.service';
 import { playerInfoInterface } from 'src/config/interfaces/player.interface';
 import { playersList } from 'src/config/data/players';
+import { GAMEMODE } from 'src/config/enums/game.enum';
 
 @Component({
   selector: 'app-game-view',
@@ -28,9 +29,13 @@ export class GameViewComponent {
   }
 
   onCreatePlayer(player: playerInfoInterface) {
+    this.players = [
+      ...this.players.slice(0, this.players.length - 1),
+      player,
+      ...this.players.slice(this.players.length - 1),
+    ];
     this.playerName = player.name;
-    this.playerInitials =
-      player.name[0].toUpperCase() + player.name[1].toUpperCase();
+    this.playerInitials = player.initials;
   }
 
   public onSelectionChange = (name: string) => {
@@ -47,8 +52,13 @@ export class GameViewComponent {
   };
 
   checkSelectionDone() {
+    console.log(this.players);
     this.players.every((player) => {
-      return player.selected;
+      if (player.gameMode === GAMEMODE.ESPECTADOR) {
+        return true;
+      } else {
+        return player.selected;
+      }
     })
       ? (this.selectionDone = true)
       : (this.selectionDone = false);

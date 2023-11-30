@@ -17,6 +17,8 @@
     <ng-container *ngFor="let player of players.slice(0, 3)">
       <app-player-card
         [name]="player.name"
+        [initials]="player.initials"
+        [gameMode]="player.gameMode"
         [selected]="player.selected"
         [selectedNumber]="player.selectedNumber"
         [onSelectionChange]="onSelectionChange"
@@ -28,6 +30,8 @@
     <ng-container *ngFor="let player of players.slice(3, 4)">
       <app-player-card
         [name]="player.name"
+        [initials]="player.initials"
+        [gameMode]="player.gameMode"
         [selected]="player.selected"
         [selectedNumber]="player.selectedNumber"
         [onSelectionChange]="onSelectionChange"
@@ -55,6 +59,8 @@
     <ng-container *ngFor="let player of players.slice(4, 5)">
       <app-player-card
         [name]="player.name"
+        [initials]="player.initials"
+        [gameMode]="player.gameMode"
         [selected]="player.selected"
         [selectedNumber]="player.selectedNumber"
         [onSelectionChange]="onSelectionChange"
@@ -63,24 +69,11 @@
     </ng-container>
   </section>
   <section class="table__player-section flex-center">
-    <ng-container *ngFor="let player of players.slice(5, 6)">
+    <ng-container *ngFor="let player of players.slice(5)">
       <app-player-card
         [name]="player.name"
-        [selected]="player.selected"
-        [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onSelectionChange"
-        *ngIf="!displayNewPlayerForm"
-      />
-    </ng-container>
-    <div class="table__player flex-center" *ngIf="!displayNewPlayerForm">
-      <div class="admin-card flex-center">
-        <h3>{{ playerInitials }}</h3>
-      </div>
-      <p class="player-name">{{ playerName }}</p>
-    </div>
-    <ng-container *ngFor="let player of players.slice(6)">
-      <app-player-card
-        [name]="player.name"
+        [initials]="player.initials"
+        [gameMode]="player.gameMode"
         [selected]="player.selected"
         [selectedNumber]="player.selectedNumber"
         [onSelectionChange]="onSelectionChange"

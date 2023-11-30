@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GameDataService } from '../services/game-data.service';
+import { GameDataService } from '../../services/game-data.service';
 
 @Component({
   selector: 'app-create-game',

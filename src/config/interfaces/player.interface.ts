@@ -2,7 +2,8 @@ import { GAMEMODE } from '../enums/game.enum';
 
 export interface playerInfoInterface {
   name: string;
-  mode: GAMEMODE;
+  initials: string;
+  gameMode: GAMEMODE;
   selected: boolean;
   selectedNumber: number | null;
 }

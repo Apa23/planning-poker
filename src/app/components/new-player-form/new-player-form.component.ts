@@ -30,7 +30,10 @@ export class NewPlayerFormComponent {
     event.preventDefault();
     const player = {
       name: this.newPlayerForm.get('playerName')?.value || '',
-      mode: this.newPlayerForm.get('gameMode')?.value as GAMEMODE,
+      initials: this.newPlayerForm.get('playerName')?.value?.slice(0, 2) || '',
+      gameMode: this.newPlayerForm
+        .get('gameMode')
+        ?.value?.toLowerCase() as GAMEMODE,
       selected: false,
       selectedNumber: null,
     };

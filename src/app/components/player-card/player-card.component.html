@@ -1,4 +1,17 @@
-<div class="table__player flex-center" (click)="onSelectionChange(name)">
-  <div class="table__player-card" [ngClass]="selected ? 'selected' : ''"></div>
-  <p class="player-name">{{ name }}</p>
-</div>
+<ng-container *ngIf="gameMode === 'jugador'">
+  <div class="table__player flex-center" (click)="onSelectionChange(name)">
+    <div
+      class="table__player-card"
+      [ngClass]="selected ? 'selected' : ''"
+    ></div>
+    <p class="player-name">{{ name }}</p>
+  </div>
+</ng-container>
+<ng-container *ngIf="gameMode === 'espactador'">
+  <div class="table__player flex-center">
+    <div class="admin-card flex-center">
+      <h3>{{ initials }}</h3>
+    </div>
+    <p class="player-name">{{ name }}</p>
+  </div>
+</ng-container>

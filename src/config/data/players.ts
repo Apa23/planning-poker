@@ -2,16 +2,53 @@ import { GAMEMODE } from '../enums/game.enum';
 import { playerInfoInterface } from '../interfaces/player.interface';
 
 export const playersList: playerInfoInterface[] = [
-  { name: 'John', mode: GAMEMODE.JUGADOR, selected: true, selectedNumber: 1 },
-  { name: 'Dan', mode: GAMEMODE.JUGADOR, selected: true, selectedNumber: 2 },
+  {
+    name: 'John',
+    initials: 'Jo',
+    gameMode: GAMEMODE.JUGADOR,
+    selected: true,
+    selectedNumber: 1,
+  },
+  {
+    name: 'Dan',
+    initials: 'Da',
+    gameMode: GAMEMODE.JUGADOR,
+    selected: true,
+    selectedNumber: 2,
+  },
   {
     name: 'Angie',
-    mode: GAMEMODE.JUGADOR,
+    initials: 'An',
+    gameMode: GAMEMODE.JUGADOR,
     selected: false,
     selectedNumber: null,
   },
-  { name: 'Mark', mode: GAMEMODE.JUGADOR, selected: true, selectedNumber: 3 },
-  { name: 'Peter', mode: GAMEMODE.JUGADOR, selected: true, selectedNumber: 4 },
-  { name: 'Luis', mode: GAMEMODE.JUGADOR, selected: true, selectedNumber: 5 },
-  { name: 'Maria', mode: GAMEMODE.JUGADOR, selected: true, selectedNumber: 6 },
+  {
+    name: 'Mark',
+    initials: 'Mr',
+    gameMode: GAMEMODE.JUGADOR,
+    selected: true,
+    selectedNumber: 3,
+  },
+  {
+    name: 'Peter',
+    initials: 'Pe',
+    gameMode: GAMEMODE.JUGADOR,
+    selected: true,
+    selectedNumber: 4,
+  },
+  {
+    name: 'Luis',
+    initials: 'Lu',
+    gameMode: GAMEMODE.JUGADOR,
+    selected: true,
+    selectedNumber: 5,
+  },
+  {
+    name: 'Maria',
+    initials: 'Ma',
+    gameMode: GAMEMODE.ESPECTADOR,
+    selected: true,
+    selectedNumber: 6,
+  },
 ];
