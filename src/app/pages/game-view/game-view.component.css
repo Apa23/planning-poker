@@ -92,14 +92,15 @@
 }
 
 .number-card {
-  margin: 0 0.5rem;
-}
-
-.number-card {
   height: 120px;
   width: 60px;
   display: flex;
   flex-direction: column;
+  margin: 0 0.5rem;
+}
+
+.number-card.selectable {
+  cursor: pointer;
 }
 
 .footer__result {

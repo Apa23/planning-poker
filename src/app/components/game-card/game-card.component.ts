@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class GameCardComponent {
   @Input() innerText: string = '';
   @Input() footerText: string = '';
+  @Input() selected: boolean = false;
 }

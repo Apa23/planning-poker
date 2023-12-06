@@ -1,4 +1,4 @@
-<div class="card__border flex-center">
+<div class="card__border flex-center" [ngClass]="selected ? 'selected' : ''">
   <h2>{{ innerText }}</h2>
 </div>
 <p class="card-caption">{{ footerText }}</p>

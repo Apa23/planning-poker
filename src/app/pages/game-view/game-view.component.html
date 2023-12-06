@@ -21,7 +21,7 @@
         [gameMode]="player.gameMode"
         [selected]="player.selected"
         [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onSelectionChange"
+        [onSelectionChange]="onRandomSelectionChange"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>
@@ -34,7 +34,7 @@
         [gameMode]="player.gameMode"
         [selected]="player.selected"
         [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onSelectionChange"
+        [onSelectionChange]="onRandomSelectionChange"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>
@@ -46,10 +46,18 @@
           <button
             class="reveal-button"
             type="button"
-            *ngIf="selectionDone"
+            *ngIf="selectionDone && !revealResult"
             (click)="onDisplayResult()"
           >
             Revelar cartas
+          </button>
+          <button
+            class="reveal-button"
+            type="button"
+            *ngIf="revealResult"
+            (click)="onNewGame()"
+          >
+            Nueva votación
           </button>
         </div>
       </div>
@@ -63,7 +71,7 @@
         [gameMode]="player.gameMode"
         [selected]="player.selected"
         [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onSelectionChange"
+        [onSelectionChange]="onRandomSelectionChange"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>
@@ -76,12 +84,35 @@
         [gameMode]="player.gameMode"
         [selected]="player.selected"
         [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onSelectionChange"
+        [onSelectionChange]="onRandomSelectionChange"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>
   </section>
 </main>
+
+<!-- Footer cards display -->
+
+<footer class="flex-center" *ngIf="!displayNewPlayerForm && !revealResult">
+  <section class="footer__side-section flex-center"></section>
+  <section
+    class="footer__middle-section flex-center"
+    *ngIf="gameMode == 'jugador' && !revealResult"
+  >
+    <ng-container *ngFor="let number of selectionCards">
+      <app-game-card
+        innerText="{{ number }}"
+        class="card number-card selectable"
+        [selected]="number == playerSelection"
+        (click)="onSelectionChange(number)"
+      />
+    </ng-container>
+  </section>
+  <section class="footer__side-section flex-center"></section>
+</footer>
+
+<!-- Footer result display -->
+
 <footer class="flex-center" *ngIf="revealResult">
   <section class="footer__side-section flex-center"></section>
   <section class="footer__middle-section flex-center">
@@ -93,14 +124,23 @@
       />
     </ng-container>
   </section>
-  <section class="footer__side-section flex-center">
+  <section class="footer__side-section flex-center" *ngIf="revealResult">
     <p>Promedio</p>
     <h2 class="footer__result">{{ avarage }}</h2>
   </section>
 </footer>
+
+<!-- Player name modal -->
 <app-new-player-form
   class="modal flex-center"
   *ngIf="displayNewPlayerForm"
   (newPlayer)="onCreatePlayer($event)"
   (displayNewPlayerForm)="onDisplayNewPlayerForm($event)"
-></app-new-player-form>
+/>
+
+<!-- Invite player modal -->
+<app-invite-player
+  class="modal flex-center"
+  *ngIf="displayInvitePlayers"
+  (displayInvitePlayers)="onDisplayInvitePlayers($event)"
+/>

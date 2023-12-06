@@ -3,6 +3,7 @@ import { GameDataService } from '../../services/game-data.service';
 import { playerInfoInterface } from 'src/config/interfaces/player.interface';
 import { playersList } from 'src/config/data/players';
 import { GAMEMODE } from 'src/config/enums/game.enum';
+import { FIBONACCI, SELECTION_CARDS } from 'src/config/data/game.constant';
 
 @Component({
   selector: 'app-game-view',
@@ -10,15 +11,24 @@ import { GAMEMODE } from 'src/config/enums/game.enum';
   styleUrls: ['./game-view.component.css'],
 })
 export class GameViewComponent {
+  // Game info
+  gameName: string = '';
   players: playerInfoInterface[] = playersList;
+  playedNumbers: number[] = [];
+  avarage: number = 0;
+  selectionCards: (number | string)[] = SELECTION_CARDS;
+
+  // Game state
   displayNewPlayerForm: boolean = true;
   selectionDone: boolean = false;
   revealResult: boolean = false;
-  gameName: string = '';
+  displayInvitePlayers: boolean = false;
+
+  // Host info
   playerName: string = '';
   playerInitials: string = '';
-  playedNumbers: number[] = [];
-  avarage: number = 0;
+  gameMode = GAMEMODE.NONE;
+  playerSelection: number | string | null = null;
 
   constructor(private gameDataService: GameDataService) {
     this.gameName = this.gameDataService.getGameName();
@@ -26,6 +36,10 @@ export class GameViewComponent {
 
   onDisplayNewPlayerForm(display: boolean) {
     this.displayNewPlayerForm = display;
+  }
+
+  onDisplayInvitePlayers(display: boolean) {
+    this.displayInvitePlayers = display;
   }
 
   onCreatePlayer(player: playerInfoInterface) {
@@ -36,18 +50,35 @@ export class GameViewComponent {
     ];
     this.playerName = player.name;
     this.playerInitials = player.initials;
+    this.gameMode = player.gameMode;
   }
 
-  public onSelectionChange = (name: string) => {
+  onSelectionChange(selection: number | string) {
+    if (selection === '?') {
+      const randomFibo =
+        FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)];
+      this.players[this.players.length - 2].selected = true;
+      this.players[this.players.length - 2].selectedNumber = randomFibo;
+      this.playerSelection = '?';
+      return;
+    }
+    this.playerSelection = selection;
+    this.players[this.players.length - 2].selected = true;
+    this.players[this.players.length - 2].selectedNumber =
+      typeof selection === 'number' ? selection : null;
+    this.checkSelectionDone();
+  }
+
+  public onRandomSelectionChange = (name: string) => {
     this.players.forEach((player) => {
       if (player.name === name) {
         player.selected = !player.selected;
         player.selected
-          ? (player.selectedNumber = Math.floor(Math.random() * 10) + 1)
+          ? (player.selectedNumber =
+              FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)])
           : (player.selectedNumber = 0);
       }
     });
-
     this.checkSelectionDone();
   };
 
@@ -64,6 +95,9 @@ export class GameViewComponent {
   }
 
   onDisplayResult() {
+    const amountOfPlayers = this.players.filter(
+      (player) => player.selectedNumber !== null
+    ).length;
     this.playedNumbers = this.players.map((player) => {
       if (player.selectedNumber) {
         return player.selectedNumber;
@@ -72,9 +106,19 @@ export class GameViewComponent {
       }
     });
     this.avarage = (
-      this.playedNumbers.map((n) => n).reduce((a, b) => a + b) /
-      this.playedNumbers.length
+      this.playedNumbers.map((n) => n).reduce((a, b) => a + b) / amountOfPlayers
     ).toFixed(2) as any;
     this.revealResult = true;
+  }
+
+  onNewGame() {
+    this.playedNumbers = [];
+    this.avarage = 0;
+    this.selectionDone = false;
+    this.revealResult = false;
+    this.playerSelection = null;
+    this.players.forEach((player) => {
+      this.onRandomSelectionChange(player.name);
+    });
   }
 }

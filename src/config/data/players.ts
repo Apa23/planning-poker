@@ -1,5 +1,6 @@
 import { GAMEMODE } from '../enums/game.enum';
 import { playerInfoInterface } from '../interfaces/player.interface';
+import { FIBONACCI } from './game.constant';
 
 export const playersList: playerInfoInterface[] = [
   {
@@ -7,14 +8,14 @@ export const playersList: playerInfoInterface[] = [
     initials: 'Jo',
     gameMode: GAMEMODE.JUGADOR,
     selected: true,
-    selectedNumber: 1,
+    selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
   },
   {
     name: 'Dan',
     initials: 'Da',
     gameMode: GAMEMODE.JUGADOR,
     selected: true,
-    selectedNumber: 2,
+    selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
   },
   {
     name: 'Angie',
@@ -28,27 +29,27 @@ export const playersList: playerInfoInterface[] = [
     initials: 'Mr',
     gameMode: GAMEMODE.JUGADOR,
     selected: true,
-    selectedNumber: 3,
+    selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
   },
   {
     name: 'Peter',
     initials: 'Pe',
     gameMode: GAMEMODE.JUGADOR,
     selected: true,
-    selectedNumber: 4,
+    selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
   },
   {
     name: 'Luis',
     initials: 'Lu',
     gameMode: GAMEMODE.JUGADOR,
     selected: true,
-    selectedNumber: 5,
+    selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
   },
   {
     name: 'Maria',
     initials: 'Ma',
-    gameMode: GAMEMODE.ESPECTADOR,
+    gameMode: GAMEMODE.JUGADOR,
     selected: true,
-    selectedNumber: 6,
+    selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
   },
 ];

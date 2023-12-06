@@ -11,6 +11,7 @@ import { NewPlayerFormComponent } from './components/new-player-form/new-player-
 import { GameDataService } from './services/game-data.service';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { PlayerCardComponent } from './components/player-card/player-card.component';
+import { InvitePlayerComponent } from './components/invite-player/invite-player.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PlayerCardComponent } from './components/player-card/player-card.compon
     NewPlayerFormComponent,
     GameCardComponent,
     PlayerCardComponent,
+    InvitePlayerComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [GameDataService],
