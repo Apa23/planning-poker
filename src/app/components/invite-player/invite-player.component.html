@@ -1,38 +1,24 @@
-<div class="modal__head">
-  <h4>Invitar jugadores</h4>
-  <button class="modal__close-button" type="button" (click)="onClose()">
-    <i class="material-icons">close</i>
+<div class="modal__body flex-center">
+  <div class="modal__header">
+    <h4>Invitar jugadores</h4>
+    <button class="modal__close-button" type="button" (click)="onClose()">
+      X
+    </button>
+  </div>
+  <input
+    id="invitation-link"
+    class="single-form__input"
+    type="text"
+    value="{{ invitationLink }}"
+    readonly
+  />
+  <button class="single-form__button" type="button" (click)="onCopyLink()">
+    Copiar Link
   </button>
 </div>
-<div class="modal__body flex-center">
-  <label class="single-form__label" for="player-name">Tu Nombre</label>
-  <input
-    id="player-name"
-    class="single-form__input"
-    formControlName="playerName"
-    type="text"
-  />
-  <div class="single-form__button-group flex-center">
-    <div class="button-group__section">
-      <label for="jugador" class="single-form__label">Jugador</label>
-      <input
-        type="radio"
-        id="jugador"
-        name="gameMode"
-        value="Jugador"
-        formControlName="gameMode"
-      />
-    </div>
-    <div class="button-group__section">
-      <label for="espectador" class="single-form__label">Espectador</label>
-      <input
-        type="radio"
-        id="espectador"
-        name="gameMode"
-        value="Espectador"
-        formControlName="gameMode"
-      />
-    </div>
-  </div>
-  <button class="single-form__button" type="submit">Continuar</button>
-</div>
+<app-notification
+  class="notification"
+  message="Link copiado al portapapeles"
+  (displayNotification)="onDisplayNotification($event)"
+  *ngIf="displayNotification"
+/>

@@ -1,0 +1,23 @@
+.notification__body {
+  width: 100%;
+  min-width: 500px;
+  height: 50px;
+  background-color: var(--secondary-color-light);
+  border-radius: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.notification__text,
+.notification__close-button {
+  color: var(--primary-color-dark1);
+  font-weight: 600;
+}
+
+.notification__close-button {
+  background-color: transparent;
+  font-size: larger;
+  border: none;
+  cursor: pointer;
+}

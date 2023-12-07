@@ -1,0 +1,43 @@
+/* Modal styles */
+.modal__body {
+  width: 100%;
+  max-width: 600px;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  background-color: var(--primary-color-dark2);
+  border-radius: 1rem;
+  border: 1px solid var(--primary-color-light);
+  padding-bottom: 2rem;
+  box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
+  -webkit-box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
+  -moz-box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
+}
+
+.modal__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--secondary-color-dark2);
+  border-radius: 1rem 1rem 0 0;
+}
+
+.single-form__button {
+  margin: 0;
+  font-size: large;
+}
+
+.modal__close-button {
+  background-color: transparent;
+  border: none;
+  font-size: larger;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#invitation-link {
+  width: 80%;
+  margin: 2rem 0;
+}

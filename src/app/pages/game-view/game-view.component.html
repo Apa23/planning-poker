@@ -7,7 +7,13 @@
     <div id="user-logo" class="flex-center">
       <h3>{{ playerInitials }}</h3>
     </div>
-    <button class="outlined-button">Invitar jugadores</button>
+    <button
+      class="outlined-button"
+      type="button"
+      (click)="onDisplayInvitePlayers(true)"
+    >
+      Invitar jugadores
+    </button>
   </div>
 </header>
 

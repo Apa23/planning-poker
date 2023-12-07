@@ -12,6 +12,7 @@ import { GameDataService } from './services/game-data.service';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { PlayerCardComponent } from './components/player-card/player-card.component';
 import { InvitePlayerComponent } from './components/invite-player/invite-player.component';
+import { NotificationComponent } from './components/shared/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { InvitePlayerComponent } from './components/invite-player/invite-player.
     GameCardComponent,
     PlayerCardComponent,
     InvitePlayerComponent,
+    NotificationComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [GameDataService],
