@@ -24,6 +24,10 @@
   border-radius: 1rem 1rem 0 0;
 }
 
+.modal__close-button {
+  color: white;
+}
+
 .single-form__button {
   margin: 0;
   font-size: large;

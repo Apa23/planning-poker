@@ -13,6 +13,7 @@ import { GameCardComponent } from './components/game-card/game-card.component';
 import { PlayerCardComponent } from './components/player-card/player-card.component';
 import { InvitePlayerComponent } from './components/invite-player/invite-player.component';
 import { NotificationComponent } from './components/shared/notification/notification.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,12 @@ import { NotificationComponent } from './components/shared/notification/notifica
     InvitePlayerComponent,
     NotificationComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+  ],
   providers: [GameDataService],
   bootstrap: [AppComponent],
 })

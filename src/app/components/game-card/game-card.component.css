@@ -6,15 +6,9 @@
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
-}
-
-.selected {
-  background-color: var(--primary-color-light);
-  -webkit-box-shadow: 0px 0px 28px 7px var(--secondary-color-dark2);
-  -moz-box-shadow: 0px 0px 28px 7px var(--secondary-color-dark2);
-  box-shadow: 0px 0px 28px 7px var(--secondary-color-dark2);
-}
-
-.selected h2 {
-  color: var(--primary-color-dark2);
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
 }

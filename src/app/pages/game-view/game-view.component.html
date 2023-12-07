@@ -77,6 +77,7 @@
             type="button"
             *ngIf="selectionDone && !revealResult"
             (click)="onDisplayResult()"
+            @fadeIn
           >
             Revelar cartas
           </button>
@@ -85,6 +86,7 @@
             type="button"
             *ngIf="revealResult"
             (click)="onNewGame()"
+            @fadeOut
           >
             Nueva votación
           </button>
@@ -122,7 +124,11 @@
 
 <!-- Footer cards display -->
 
-<footer class="flex-center" *ngIf="!displayNewPlayerForm && !revealResult">
+<footer
+  class="flex-center"
+  *ngIf="!displayNewPlayerForm && !revealResult"
+  @zoomIn
+>
   <section class="footer__side-section flex-center"></section>
   <section
     class="footer__middle-section flex-center"
@@ -132,7 +138,7 @@
       <app-game-card
         innerText="{{ number }}"
         class="card number-card selectable"
-        [selected]="number == playerSelection"
+        [ngClass]="number == playerSelection ? 'selected' : ''"
         (click)="onSelectionChange(number)"
       />
     </ng-container>
@@ -142,7 +148,7 @@
 
 <!-- Footer result display -->
 
-<footer class="flex-center" *ngIf="revealResult">
+<footer class="flex-center" *ngIf="revealResult" @zoomIn>
   <section class="footer__side-section flex-center"></section>
   <section class="footer__middle-section flex-center">
     <ng-container *ngFor="let number of occurrences | keyvalue">

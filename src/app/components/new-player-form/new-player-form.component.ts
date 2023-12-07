@@ -2,11 +2,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { playerInfoInterface } from 'src/config/interfaces/player.interface';
 import { GAMEMODE } from 'src/config/enums/game.enum';
+import { zoomIn } from 'src/assets/animations';
 
 @Component({
   selector: 'app-new-player-form',
   templateUrl: './new-player-form.component.html',
   styleUrls: ['./new-player-form.component.css'],
+  animations: [zoomIn],
 })
 export class NewPlayerFormComponent {
   @Output() newPlayer: EventEmitter<playerInfoInterface> =

@@ -26,7 +26,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-  color: white;
 }
 
 html {
@@ -39,6 +38,7 @@ html {
   height: 100vh;
   display: flex;
   justify-content: center;
+  color: white;
 }
 
 /* Header styles */
@@ -94,6 +94,7 @@ footer {
   border: 1px solid var(--primary-color-light);
   padding: 0.5rem 2rem;
   margin: 0.5rem 0;
+  color: white;
 }
 
 .single-form__button {
@@ -165,6 +166,8 @@ footer {
 .outlined-button {
   background-color: transparent;
   border: 1px solid white;
+  color: white;
+
   padding: 10px;
   margin: 0 1rem;
   border-radius: 2rem;

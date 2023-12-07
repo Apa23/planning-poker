@@ -8,11 +8,13 @@ import {
   SEQUENCE,
   EXTRA_SELECTION_CARDS,
 } from 'src/config/data/game.constant';
+import { zoomIn, zoomOut, fadeIn, fadeOut } from 'src/assets/animations';
 
 @Component({
   selector: 'app-game-view',
   templateUrl: './game-view.component.html',
   styleUrls: ['./game-view.component.css'],
+  animations: [zoomIn, zoomOut, fadeIn, fadeOut],
 })
 export class GameViewComponent {
   // Game info
