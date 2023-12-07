@@ -13,6 +13,42 @@
   padding: 10px;
   background-color: var(--secondary-color-light);
   border-radius: 50%;
+  cursor: pointer;
+}
+
+#user-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 5rem;
+  background-color: var(--secondary-color-dark2);
+  border-radius: 1rem;
+}
+
+.menu-button {
+  background-color: transparent;
+  color: white;
+  font-weight: 500;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.menu-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.mode-selection {
+  width: 100%;
+  height: 35px;
+  background: var(--secondary-color);
+  text-align: center;
+  border: none;
 }
 
 .modal {
@@ -84,6 +120,10 @@
   border: none;
   cursor: pointer;
   padding: 0.5rem 2rem;
+}
+
+.reveal-button:hover {
+  background-color: var(--secondary-color);
 }
 
 #user-logo h3 {

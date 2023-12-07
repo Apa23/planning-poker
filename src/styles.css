@@ -68,6 +68,7 @@ header {
 #logo-pragma {
   height: 80px;
 }
+
 /* Footer styles */
 footer {
   padding: 2rem 0;
@@ -105,6 +106,11 @@ footer {
   cursor: pointer;
   padding: 0.5rem 2rem;
   margin: 2rem auto 0 auto;
+}
+
+.single-form__button:hover {
+  background-color: var(--secondary-color);
+  color: white;
 }
 
 .single-form__button:disabled {
@@ -162,11 +168,18 @@ footer {
   padding: 10px;
   margin: 0 1rem;
   border-radius: 2rem;
+  cursor: pointer;
   -webkit-border-radius: 2rem;
   -moz-border-radius: 2rem;
   -ms-border-radius: 2rem;
   -o-border-radius: 2rem;
 }
+
+.outlined-button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Notification styles */
 
 .notification {
   position: absolute;

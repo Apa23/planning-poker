@@ -4,8 +4,31 @@
   </div>
   <h2 class="game-title">{{ gameName }}</h2>
   <div class="header__user-area">
-    <div id="user-logo" class="flex-center">
+    <div id="user-logo" class="flex-center" (click)="onDisplayUserMenu()">
       <h3>{{ playerInitials }}</h3>
+    </div>
+    <div id="user-menu" *ngIf="displayUserMenu">
+      <button
+        class="menu-button"
+        type="button"
+        (click)="onDisplayChangeCardMode()"
+      >
+        Cambiar tipo de cartas
+      </button>
+      <div class="user-menu__sub" *ngIf="displayChangeCardMode">
+        <select
+          name="cards-mode"
+          class="mode-selection"
+          (change)="onCardModeChange($event)"
+        >
+          <option value="fibonacci" selected>Fibonacci</option>
+          <option value="sequence">Secuencial</option>
+          <option value="random">Aleatorio</option>
+        </select>
+      </div>
+      <button class="menu-button" type="button" (click)="onChangeGameMode()">
+        Cambiar modo de juego
+      </button>
     </div>
     <button
       class="outlined-button"
@@ -122,10 +145,10 @@
 <footer class="flex-center" *ngIf="revealResult">
   <section class="footer__side-section flex-center"></section>
   <section class="footer__middle-section flex-center">
-    <ng-container *ngFor="let number of playedNumbers">
+    <ng-container *ngFor="let number of occurrences | keyvalue">
       <app-game-card
-        innerText="{{ number }}"
-        footerText="# votos"
+        innerText="{{ number.key }}"
+        footerText="{{ number.value }} votos"
         class="card number-card"
       />
     </ng-container>
