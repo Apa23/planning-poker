@@ -1,8 +1,10 @@
 <header>
-  <div class="header__logo-area">
-    <img src="../assets/logo-pragma.png" alt="logo-pragma" id="logo-pragma" />
-    <h1>Crear partida</h1>
-  </div>
+  <app-logo
+    class="header__section"
+    src="../assets/logo-pragma.png"
+    alt="logo-pragma"
+    title="Crear partida"
+  />
 </header>
 <main class="flex-center">
   <app-new-game-form (gameName)="onCreateGame($event)"></app-new-game-form>

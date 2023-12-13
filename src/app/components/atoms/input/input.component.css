@@ -1,0 +1,10 @@
+.input__text {
+  appearance: none;
+  background-color: var(--primary-color-dark1);
+  opacity: 0.8;
+  border-radius: 2rem;
+  border: 1px solid var(--primary-color-light);
+  padding: 0.5rem 2rem;
+  margin: 0.5rem 0;
+  color: white;
+}

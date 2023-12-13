@@ -1,0 +1,9 @@
+<form (submit)="onCreateGame($event)" class="single-form">
+  <app-input-label [for]="'game-name'" [text]="'Nombre de la partida'" />
+  <app-input [formControl]="gameNameControl" type="text" name="game-name" />
+  <app-button
+    class="flex-center"
+    text="Crear partida"
+    [disabled]="!gameNameControl.valid"
+  />
+</form>

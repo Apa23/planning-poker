@@ -1,0 +1,22 @@
+.button__filled {
+  max-width: 200px;
+  color: var(--primary-color);
+  background-color: white;
+  font-weight: 700;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  margin: 1rem auto 0 auto;
+}
+
+.button__filled:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.button__filled:disabled {
+  background-color: var(--secondary-color-dark1);
+  color: rgb(162, 162, 162);
+  cursor: not-allowed;
+}
