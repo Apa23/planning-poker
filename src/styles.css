@@ -43,18 +43,6 @@ html {
 
 /* Header styles */
 
-header {
-  width: 90vw;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header__section {
-  width: 33%;
-}
-
 .header__user-area {
   display: flex;
   align-items: center;

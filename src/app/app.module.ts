@@ -18,6 +18,7 @@ import { ButtonComponent } from './components/atoms/button/button.component';
 import { InputComponent } from './components/atoms/input/input.component';
 import { InputLabelComponent } from './components/atoms/input-label/input-label.component';
 import { LogoComponent } from './components/atoms/logo/logo.component';
+import { HeaderComponent } from './components/organisms/header/header.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { LogoComponent } from './components/atoms/logo/logo.component';
     InputComponent,
     InputLabelComponent,
     LogoComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
