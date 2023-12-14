@@ -1,0 +1,19 @@
+<div id="user-menu" *ngIf="displayUserMenu">
+  <button class="menu-button" type="button" (click)="onDisplayChangeCardMode()">
+    Cambiar tipo de cartas
+  </button>
+  <div class="user-menu__sub" *ngIf="displayChangeCardMode">
+    <select
+      name="cards-mode"
+      class="mode-selection"
+      (change)="onCardModeChange($event)"
+    >
+      <option value="fibonacci" selected>Fibonacci</option>
+      <option value="sequence">Secuencial</option>
+      <option value="random">Aleatorio</option>
+    </select>
+  </div>
+  <button class="menu-button" type="button" (click)="onChangeGameMode()">
+    Cambiar modo de juego
+  </button>
+</div>

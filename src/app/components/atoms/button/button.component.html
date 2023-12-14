@@ -1,3 +1,8 @@
-<button [ngClass]="'button__' + type" type="submit" [disabled]="disabled">
+<button
+  [ngClass]="'button__' + type"
+  type="submit"
+  [disabled]="disabled"
+  (click)="action()"
+>
   {{ text }}
 </button>

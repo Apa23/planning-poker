@@ -1,0 +1,9 @@
+<div class="header__user-area">
+  <app-user-logo (click)="onDisplayUserMenu()" />
+  <app-user-menu [displayUserMenu]="displayUserMenu" />
+  <app-button
+    type="outlined"
+    text="Invitar jugadores"
+    [action]="onDisplayInvitePlayers"
+  />
+</div>

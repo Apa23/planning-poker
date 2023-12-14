@@ -1,0 +1,36 @@
+<form class="single-form" [formGroup]="newPlayerForm">
+  <app-input-label for="player-name" text="Tu Nombre" />
+  <app-input
+    type="text"
+    name="player-name"
+    [formControlObject]="newPlayerForm.controls.playerName"
+  />
+  <div class="button-group flex-center">
+    <div class="button-group__section">
+      <app-input-label for="player-mode" text="Jugador" />
+      <input
+        type="radio"
+        id="player-mode"
+        name="gameMode"
+        value="Jugador"
+        [formControl]="newPlayerForm.controls.gameMode"
+      />
+    </div>
+    <div class="button-group__section">
+      <app-input-label for="viewer-mode" text="Espectador" />
+      <input
+        type="radio"
+        id="viewer-mode"
+        name="gameMode"
+        value="Espectador"
+        [formControl]="newPlayerForm.controls.gameMode"
+      />
+    </div>
+  </div>
+  <app-button
+    class="flex-center"
+    text="Continuar"
+    [disabled]="newPlayerForm.invalid"
+    [action]="onCreatePlayer"
+  />
+</form>

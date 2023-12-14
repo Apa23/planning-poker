@@ -1,44 +1,4 @@
-<header>
-  <div class="header__logo-area">
-    <img src="../assets/logo-pragma.png" alt="logo-pragma" id="logo-pragma" />
-  </div>
-  <h2 class="game-title">{{ gameName }}</h2>
-  <div class="header__user-area">
-    <div id="user-logo" class="flex-center" (click)="onDisplayUserMenu()">
-      <h3>{{ playerInitials }}</h3>
-    </div>
-    <div id="user-menu" *ngIf="displayUserMenu">
-      <button
-        class="menu-button"
-        type="button"
-        (click)="onDisplayChangeCardMode()"
-      >
-        Cambiar tipo de cartas
-      </button>
-      <div class="user-menu__sub" *ngIf="displayChangeCardMode">
-        <select
-          name="cards-mode"
-          class="mode-selection"
-          (change)="onCardModeChange($event)"
-        >
-          <option value="fibonacci" selected>Fibonacci</option>
-          <option value="sequence">Secuencial</option>
-          <option value="random">Aleatorio</option>
-        </select>
-      </div>
-      <button class="menu-button" type="button" (click)="onChangeGameMode()">
-        Cambiar modo de juego
-      </button>
-    </div>
-    <button
-      class="outlined-button"
-      type="button"
-      (click)="onDisplayInvitePlayers(true)"
-    >
-      Invitar jugadores
-    </button>
-  </div>
-</header>
+<app-header [inGame]="true" [gameName]="gameName" />
 
 <main class="table">
   <!-- Players cards -->
@@ -166,12 +126,7 @@
 </footer>
 
 <!-- Player name modal -->
-<app-new-player-form
-  class="modal flex-center"
-  *ngIf="displayNewPlayerForm"
-  (newPlayer)="onCreatePlayer($event)"
-  (displayNewPlayerForm)="onDisplayNewPlayerForm($event)"
-/>
+<app-modal class="modal flex-center" *ngIf="displayNewPlayerForm" />
 
 <!-- Invite player modal -->
 <app-invite-player

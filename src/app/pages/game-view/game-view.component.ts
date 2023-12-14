@@ -35,8 +35,6 @@ export class GameViewComponent {
   selectionDone: boolean = false;
   revealResult: boolean = false;
   displayInvitePlayers: boolean = false;
-  displayUserMenu: boolean = false;
-  displayChangeCardMode: boolean = false;
 
   // Host info
   playerName: string = '';
@@ -46,22 +44,19 @@ export class GameViewComponent {
 
   constructor(private gameDataService: GameDataService) {
     this.gameName = this.gameDataService.getGameName();
+    gameDataService.playerInfo$.subscribe((playerInfo) => {
+      if (playerInfo.name) {
+        this.onCreatePlayer(playerInfo);
+      }
+    });
   }
 
-  onDisplayNewPlayerForm(display: boolean) {
-    this.displayNewPlayerForm = display;
-  }
+  onDisplayNewPlayerForm = () => {
+    this.displayNewPlayerForm = !this.displayNewPlayerForm;
+  };
 
   onDisplayInvitePlayers(display: boolean) {
     this.displayInvitePlayers = display;
-  }
-
-  onDisplayUserMenu() {
-    this.displayUserMenu = !this.displayUserMenu;
-  }
-
-  onDisplayChangeCardMode() {
-    this.displayChangeCardMode = !this.displayChangeCardMode;
   }
 
   onChangeGameMode() {
@@ -104,6 +99,7 @@ export class GameViewComponent {
     this.playerName = player.name;
     this.playerInitials = player.initials;
     this.gameMode = player.gameMode;
+    this.onDisplayNewPlayerForm();
   }
 
   onSelectionChange(selection: number | string) {

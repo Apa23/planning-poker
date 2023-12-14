@@ -1,0 +1,5 @@
+.header__user-area {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

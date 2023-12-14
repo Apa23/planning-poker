@@ -20,3 +20,22 @@
   color: rgb(162, 162, 162);
   cursor: not-allowed;
 }
+
+.button__outlined {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+
+  padding: 10px;
+  margin: 0 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+}
+
+.button__outlined:hover {
+  background-color: var(--secondary-color);
+}

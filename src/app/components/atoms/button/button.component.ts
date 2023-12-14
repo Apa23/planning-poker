@@ -8,8 +8,8 @@ import { BUTTON_TYPE } from 'src/config/enums/app.enums';
 })
 export class ButtonComponent {
   @Input() text: string = '';
-  @Input() type: BUTTON_TYPE = BUTTON_TYPE.FILLED;
+  @Input() type: string = BUTTON_TYPE.FILLED;
   @Input() disabled: boolean = false;
   @Input() location: string = '';
-  @Input() action: () => void = () => {};
+  @Input() action: (args?: any) => void = () => {};
 }

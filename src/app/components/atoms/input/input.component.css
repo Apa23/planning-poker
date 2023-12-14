@@ -1,4 +1,5 @@
 .input__text {
+  width: 100%;
   appearance: none;
   background-color: var(--primary-color-dark1);
   opacity: 0.8;

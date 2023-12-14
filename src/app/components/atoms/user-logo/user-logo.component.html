@@ -1,0 +1,16 @@
+<div
+  class="user-logo flex-center"
+  (click)="onDisplayUserMenu()"
+  *ngIf="!displayUserName"
+>
+  <h3>{{ playerInitials }}</h3>
+</div>
+<ng-container *ngIf="displayUserName">
+  <div
+    class="user-logo flex-center"
+    [ngClass]="displayUserName ? 'player-card' : ''"
+  >
+    <h3>{{ playerInitials }}</h3>
+  </div>
+  <p class="player-name">{{ playerName }}</p>
+</ng-container>
