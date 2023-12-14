@@ -7,6 +7,7 @@ import { BUTTON_TYPE } from 'src/config/enums/app.enums';
   styleUrls: ['./button.component.css'],
 })
 export class ButtonComponent {
+  @Input() id: string = '';
   @Input() text: string = '';
   @Input() type: string = BUTTON_TYPE.FILLED;
   @Input() disabled: boolean = false;

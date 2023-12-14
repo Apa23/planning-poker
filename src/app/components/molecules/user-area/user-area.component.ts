@@ -8,8 +8,9 @@ import { Component, Input } from '@angular/core';
 export class UserAreaComponent {
   playerInitials: string = '';
   displayUserMenu: boolean = false;
+  @Input() onDisplayInvitePlayers: () => void = () => {};
+
   onDisplayUserMenu = () => {
     this.displayUserMenu = !this.displayUserMenu;
   };
-  onDisplayInvitePlayers() {}
 }

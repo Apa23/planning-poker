@@ -9,22 +9,10 @@ import { fadeIn, fadeOut, zoomIn, zoomOut } from 'src/assets/animations';
   animations: [zoomIn, zoomOut, fadeIn, fadeOut],
 })
 export class InvitePlayerComponent {
-  @Output() displayInvitePlayers: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
-
   invitationLink: string = 'https://prsgplsnningpoker.com/9QdP98VGUrZQLNCqYAF7';
-  displayNotification: boolean = false;
 
-  onDisplayNotification(display: boolean) {
-    this.displayNotification = display;
-  }
-
-  onClose() {
-    this.displayInvitePlayers.emit(false);
-  }
-
-  onCopyLink() {
+  onCopyLink = () => {
     navigator.clipboard.writeText(this.invitationLink);
-    this.displayNotification = true;
-  }
+    console.log('%cLink copiado al portapapeles');
+  };
 }

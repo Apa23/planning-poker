@@ -1,0 +1,81 @@
+<main class="table">
+  <!-- Players cards -->
+  <section class="table__player-section flex-center">
+    <ng-container *ngFor="let player of players.slice(0, 3)">
+      <app-player-card
+        [name]="player.name"
+        [initials]="player.initials"
+        [gameMode]="player.gameMode"
+        [selected]="player.selected"
+        [selectedNumber]="player.selectedNumber"
+        [onSelectionChange]="onRandomSelectionChange"
+        *ngIf="!displayNewPlayerForm"
+      />
+    </ng-container>
+  </section>
+  <section class="table__player-section flex-center">
+    <ng-container *ngFor="let player of players.slice(3, 4)">
+      <app-player-card
+        [name]="player.name"
+        [initials]="player.initials"
+        [gameMode]="player.gameMode"
+        [selected]="player.selected"
+        [selectedNumber]="player.selectedNumber"
+        [onSelectionChange]="onRandomSelectionChange"
+        *ngIf="!displayNewPlayerForm"
+      />
+    </ng-container>
+
+    <!-- Table -->
+    <div class="table__body flex-center">
+      <div class="table__body-border flex-center">
+        <div class="table__body-inner flex-center">
+          <button
+            class="reveal-button"
+            type="button"
+            *ngIf="selectionDone && !revealResult"
+            (click)="onDisplayResult()"
+            @fadeIn
+          >
+            Revelar cartas
+          </button>
+          <button
+            class="reveal-button"
+            type="button"
+            *ngIf="revealResult"
+            (click)="onNewGame()"
+            @fadeOut
+          >
+            Nueva votación
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Players cards -->
+    <ng-container *ngFor="let player of players.slice(4, 5)">
+      <app-player-card
+        [name]="player.name"
+        [initials]="player.initials"
+        [gameMode]="player.gameMode"
+        [selected]="player.selected"
+        [selectedNumber]="player.selectedNumber"
+        [onSelectionChange]="onRandomSelectionChange"
+        *ngIf="!displayNewPlayerForm"
+      />
+    </ng-container>
+  </section>
+  <section class="table__player-section flex-center">
+    <ng-container *ngFor="let player of players.slice(5)">
+      <app-player-card
+        [name]="player.name"
+        [initials]="player.initials"
+        [gameMode]="player.gameMode"
+        [selected]="player.selected"
+        [selectedNumber]="player.selectedNumber"
+        [onSelectionChange]="onRandomSelectionChange"
+        *ngIf="!displayNewPlayerForm"
+      />
+    </ng-container>
+  </section>
+</main>

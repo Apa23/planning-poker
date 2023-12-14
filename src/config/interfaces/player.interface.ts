@@ -1,4 +1,4 @@
-import { GAMEMODE } from '../enums/game.enum';
+import { CARDMODE, GAMEMODE } from '../enums/game.enum';
 
 export interface playerInfoInterface {
   name: string;
@@ -6,4 +6,8 @@ export interface playerInfoInterface {
   gameMode: GAMEMODE;
   selected: boolean;
   selectedNumber: number | null;
+}
+
+export interface gameInfoInterface {
+  cardMode: CARDMODE;
 }

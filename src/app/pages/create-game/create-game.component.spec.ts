@@ -1,18 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateGameComponent } from './create-game.component';
+import { GameDataService } from 'src/app/services/game-data.service';
 
 describe('CreateGameComponent', () => {
   let component: CreateGameComponent;
-  let fixture: ComponentFixture<CreateGameComponent>;
+  let dataService: GameDataService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [CreateGameComponent]
-    });
-    fixture = TestBed.createComponent(CreateGameComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    dataService = new GameDataService();
+    component = new CreateGameComponent(dataService);
   });
 
   it('should create', () => {

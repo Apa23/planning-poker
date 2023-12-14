@@ -1,0 +1,12 @@
+<app-input
+  id="invitation-link"
+  class="input__text"
+  type="text"
+  [value]="invitationLink"
+  [readonly]="true"
+/>
+<app-button
+  class="button__filled"
+  [text]="'Copiar Link'"
+  [action]="onCopyLink"
+/>

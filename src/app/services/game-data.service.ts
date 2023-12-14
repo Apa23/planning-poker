@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { GAMEMODE } from 'src/config/enums/game.enum';
-import { playerInfoInterface } from 'src/config/interfaces/player.interface';
+import { CARDMODE, GAMEMODE } from 'src/config/enums/game.enum';
+import {
+  gameInfoInterface,
+  playerInfoInterface,
+} from 'src/config/interfaces/player.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -17,11 +20,17 @@ export class GameDataService {
       selected: false,
       selectedNumber: null,
     });
+  private _gameInfo: BehaviorSubject<gameInfoInterface> =
+    new BehaviorSubject<gameInfoInterface>({
+      cardMode: CARDMODE.NONE,
+    });
 
   // Observables
   public gameName$: Observable<string> = this._gameName.asObservable();
   public playerInfo$: Observable<playerInfoInterface> =
     this._playerInfo.asObservable();
+  public gameInfo$: Observable<gameInfoInterface> =
+    this._gameInfo.asObservable();
 
   // Functions
   public setGameName(gameName: string): void {
@@ -38,5 +47,13 @@ export class GameDataService {
 
   public getPlayerInfo(): playerInfoInterface {
     return this._playerInfo.getValue();
+  }
+
+  public setGameInfo(gameInfo: gameInfoInterface): void {
+    this._gameInfo.next(gameInfo);
+  }
+
+  public getGameInfo(): gameInfoInterface {
+    return this._gameInfo.getValue();
   }
 }

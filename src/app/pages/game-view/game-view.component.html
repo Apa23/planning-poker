@@ -1,136 +1,47 @@
-<app-header [inGame]="true" [gameName]="gameName" />
+<app-header
+  [inGame]="true"
+  [gameName]="gameName"
+  [onDisplayInvitePlayers]="onDisplayInvitePlayers"
+/>
 
-<main class="table">
-  <!-- Players cards -->
-  <section class="table__player-section flex-center">
-    <ng-container *ngFor="let player of players.slice(0, 3)">
-      <app-player-card
-        [name]="player.name"
-        [initials]="player.initials"
-        [gameMode]="player.gameMode"
-        [selected]="player.selected"
-        [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onRandomSelectionChange"
-        *ngIf="!displayNewPlayerForm"
-      />
-    </ng-container>
-  </section>
-  <section class="table__player-section flex-center">
-    <ng-container *ngFor="let player of players.slice(3, 4)">
-      <app-player-card
-        [name]="player.name"
-        [initials]="player.initials"
-        [gameMode]="player.gameMode"
-        [selected]="player.selected"
-        [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onRandomSelectionChange"
-        *ngIf="!displayNewPlayerForm"
-      />
-    </ng-container>
+<!-- Table -->
+<app-table
+  [players]="players"
+  [displayNewPlayerForm]="displayNewPlayerForm"
+  [selectionDone]="selectionDone"
+  [revealResult]="revealResult"
+  [onRandomSelectionChange]="onRandomSelectionChange"
+  [onDisplayResult]="onDisplayResult"
+  [onNewGame]="onNewGame"
+/>
 
-    <!-- Table -->
-    <div class="table__body flex-center">
-      <div class="table__body-border flex-center">
-        <div class="table__body-inner flex-center">
-          <button
-            class="reveal-button"
-            type="button"
-            *ngIf="selectionDone && !revealResult"
-            (click)="onDisplayResult()"
-            @fadeIn
-          >
-            Revelar cartas
-          </button>
-          <button
-            class="reveal-button"
-            type="button"
-            *ngIf="revealResult"
-            (click)="onNewGame()"
-            @fadeOut
-          >
-            Nueva votación
-          </button>
-        </div>
-      </div>
-    </div>
+<!-- Footer  -->
 
-    <!-- Players cards -->
-    <ng-container *ngFor="let player of players.slice(4, 5)">
-      <app-player-card
-        [name]="player.name"
-        [initials]="player.initials"
-        [gameMode]="player.gameMode"
-        [selected]="player.selected"
-        [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onRandomSelectionChange"
-        *ngIf="!displayNewPlayerForm"
-      />
-    </ng-container>
-  </section>
-  <section class="table__player-section flex-center">
-    <ng-container *ngFor="let player of players.slice(5)">
-      <app-player-card
-        [name]="player.name"
-        [initials]="player.initials"
-        [gameMode]="player.gameMode"
-        [selected]="player.selected"
-        [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onRandomSelectionChange"
-        *ngIf="!displayNewPlayerForm"
-      />
-    </ng-container>
-  </section>
-</main>
-
-<!-- Footer cards display -->
-
-<footer
-  class="flex-center"
-  *ngIf="!displayNewPlayerForm && !revealResult"
-  @zoomIn
->
-  <section class="footer__side-section flex-center"></section>
-  <section
-    class="footer__middle-section flex-center"
-    *ngIf="gameMode == 'jugador' && !revealResult"
-  >
-    <ng-container *ngFor="let number of selectionCards">
-      <app-game-card
-        innerText="{{ number }}"
-        class="card number-card selectable"
-        [ngClass]="number == playerSelection ? 'selected' : ''"
-        (click)="onSelectionChange(number)"
-      />
-    </ng-container>
-  </section>
-  <section class="footer__side-section flex-center"></section>
-</footer>
-
-<!-- Footer result display -->
-
-<footer class="flex-center" *ngIf="revealResult" @zoomIn>
-  <section class="footer__side-section flex-center"></section>
-  <section class="footer__middle-section flex-center">
-    <ng-container *ngFor="let number of occurrences | keyvalue">
-      <app-game-card
-        innerText="{{ number.key }}"
-        footerText="{{ number.value }} votos"
-        class="card number-card"
-      />
-    </ng-container>
-  </section>
-  <section class="footer__side-section flex-center" *ngIf="revealResult">
-    <p>Promedio</p>
-    <h2 class="footer__result">{{ avarage }}</h2>
-  </section>
-</footer>
+<app-footer
+  [displayNewPlayerForm]="displayNewPlayerForm"
+  [revealResult]="revealResult"
+  [gameMode]="gameMode"
+  [selectionCards]="selectionCards"
+  [playerSelection]="playerSelection"
+  [revealResult]="revealResult"
+  [occurrences]="occurrences"
+  [avarage]="avarage"
+  [onSelectionChange]="onSelectionChange"
+/>
 
 <!-- Player name modal -->
-<app-modal class="modal flex-center" *ngIf="displayNewPlayerForm" />
+<app-modal
+  class="modal flex-center"
+  *ngIf="displayNewPlayerForm"
+  type="create"
+/>
 
 <!-- Invite player modal -->
-<app-invite-player
+<app-modal
   class="modal flex-center"
   *ngIf="displayInvitePlayers"
-  (displayInvitePlayers)="onDisplayInvitePlayers($event)"
+  [onClose]="onDisplayInvitePlayers"
+  [header]="true"
+  type="invite"
+  size="lg"
 />

@@ -1,3 +1,3 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalComponent } from './modal.component';
+import { InvitePlayerComponent } from './invite-player.component';

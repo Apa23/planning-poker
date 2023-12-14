@@ -9,9 +9,9 @@ import { CreateGameComponent } from './pages/create-game/create-game.component';
 import { GameViewComponent } from './pages/game-view/game-view.component';
 import { NewPlayerFormComponent } from './components/molecules/new-player-form/new-player-form.component';
 import { GameDataService } from './services/game-data.service';
-import { GameCardComponent } from './components/game-card/game-card.component';
+import { GameCardComponent } from './components/atoms/game-card/game-card.component';
 import { PlayerCardComponent } from './components/molecules/player-card/player-card.component';
-import { InvitePlayerComponent } from './components/invite-player/invite-player.component';
+import { InvitePlayerComponent } from './components/molecules/invite-player/invite-player.component';
 import { NotificationComponent } from './components/shared/notification/notification.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonComponent } from './components/atoms/button/button.component';
@@ -24,6 +24,8 @@ import { UserAreaComponent } from './components/molecules/user-area/user-area.co
 import { UserMenuComponent } from './components/molecules/user-menu/user-menu.component';
 import { UserLogoComponent } from './components/atoms/user-logo/user-logo.component';
 import { ModalComponent } from './components/organisms/modal/modal.component';
+import { FooterComponent } from './components/organisms/footer/footer.component';
+import { TableComponent } from './components/organisms/table/table.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { ModalComponent } from './components/organisms/modal/modal.component';
     UserMenuComponent,
     UserLogoComponent,
     ModalComponent,
+    FooterComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,

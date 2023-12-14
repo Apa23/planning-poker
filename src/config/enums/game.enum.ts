@@ -3,3 +3,10 @@ export enum GAMEMODE {
   ESPECTADOR = 'espectador',
   NONE = '',
 }
+
+export enum CARDMODE {
+  FIBONACCI = 'fibonacci',
+  SEQUENCE = 'sequence',
+  RANDOM = 'random',
+  NONE = '',
+}

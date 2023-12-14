@@ -1,0 +1,40 @@
+<footer
+  class="flex-center"
+  *ngIf="!displayNewPlayerForm && !revealResult"
+  @zoomIn
+>
+  <section class="footer__side-section flex-center"></section>
+  <section
+    class="footer__middle-section flex-center"
+    *ngIf="gameMode == 'jugador' && !revealResult"
+  >
+    <ng-container *ngFor="let number of selectionCards">
+      <app-game-card
+        innerText="{{ number }}"
+        class="card number-card selectable"
+        [ngClass]="number == playerSelection ? 'selected' : ''"
+        (click)="onSelectionChange(number)"
+      />
+    </ng-container>
+  </section>
+  <section class="footer__side-section flex-center"></section>
+</footer>
+
+<!-- Footer result display -->
+
+<footer class="flex-center" *ngIf="revealResult" @zoomIn>
+  <section class="footer__side-section flex-center"></section>
+  <section class="footer__middle-section flex-center">
+    <ng-container *ngFor="let number of occurrences | keyvalue">
+      <app-game-card
+        innerText="{{ number.key }}"
+        footerText="{{ number.value }} votos"
+        class="card number-card"
+      />
+    </ng-container>
+  </section>
+  <section class="footer__side-section flex-center" *ngIf="revealResult">
+    <p>Promedio</p>
+    <h2 class="footer__result">{{ avarage }}</h2>
+  </section>
+</footer>

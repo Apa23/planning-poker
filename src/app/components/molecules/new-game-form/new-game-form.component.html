@@ -2,10 +2,12 @@
   <app-input-label [for]="'game-name'" [text]="'Nombre de la partida'" />
   <app-input
     [formControlObject]="gameNameControl"
+    id="game-name"
     type="text"
     name="game-name"
   />
   <app-button
+    id="create-game"
     class="flex-center"
     text="Crear partida"
     [disabled]="!gameNameControl.valid"

@@ -1,3 +1,16 @@
-<div class="modal__body flex-center" @zoomIn>
-  <app-new-player-form />
+<div class="modal__container" [ngClass]="size" @zoomIn>
+  <ng-container *ngIf="header">
+    <div class="modal__header flex-center">
+      <h4>Invitar jugadores</h4>
+      <app-button type="outlined" [text]="'X'" [action]="onClose" />
+    </div>
+  </ng-container>
+  <div class="modal__body flex-center" [ngClass]="header ? 'has-header' : ''">
+    <ng-container *ngIf="type == 'invite'">
+      <app-invite-player class="full-w" />
+    </ng-container>
+    <ng-container *ngIf="type == 'create'">
+      <app-new-player-form />
+    </ng-container>
+  </div>
 </div>

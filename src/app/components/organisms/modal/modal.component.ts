@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { zoomIn } from 'src/assets/animations';
 
 @Component({
@@ -7,4 +7,9 @@ import { zoomIn } from 'src/assets/animations';
   styleUrls: ['./modal.component.css'],
   animations: [zoomIn],
 })
-export class ModalComponent {}
+export class ModalComponent {
+  @Input() header: boolean = false;
+  @Input() type: string = '';
+  @Input() size: string = 'md';
+  @Input() onClose = () => {};
+}

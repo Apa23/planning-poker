@@ -1,8 +1,24 @@
-.modal__body {
-  width: 100%;
-  max-width: 500px;
+.modal__container {
+  display: flex;
   flex-direction: column;
-  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.md {
+  max-width: 500px;
+}
+
+.lg {
+  max-width: 600px;
+}
+
+.modal__body,
+.modal__header {
+  width: 100%;
+  flex-direction: column;
   background-color: var(--primary-color-dark2);
   border-radius: 1rem;
   border: 1px solid var(--primary-color-light);
@@ -10,4 +26,32 @@
   box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
   -webkit-box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
   -moz-box-shadow: 1px -1px 21px -6px rgba(187, 101, 255, 0.86);
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.has-header {
+  padding-top: 1rem;
+  border-radius: 0 0 1rem 1rem;
+  -webkit-border-radius: 0 0 1rem 1rem;
+  -moz-border-radius: 0 0 1rem 1rem;
+  -ms-border-radius: 0 0 1rem 1rem;
+  -o-border-radius: 0 0 1rem 1rem;
+  border-top: 0;
+}
+
+.modal__header {
+  border-bottom: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--secondary-color-dark2);
+  border-radius: 1rem 1rem 0 0;
+  -webkit-border-radius: 1rem 1rem 0 0;
+  -moz-border-radius: 1rem 1rem 0 0;
+  -ms-border-radius: 1rem 1rem 0 0;
+  -o-border-radius: 1rem 1rem 0 0;
 }

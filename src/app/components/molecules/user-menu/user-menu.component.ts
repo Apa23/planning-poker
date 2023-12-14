@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { GameDataService } from 'src/app/services/game-data.service';
+import { GAMEMODE } from 'src/config/enums/game.enum';
 
 @Component({
   selector: 'app-user-menu',
@@ -7,18 +9,25 @@ import { Component, Input } from '@angular/core';
 })
 export class UserMenuComponent {
   @Input() displayUserMenu: boolean = false;
-  displayInvitePlayers: boolean = false;
   displayChangeCardMode: boolean = false;
-  onDisplayInvitePlayers() {
-    this.displayInvitePlayers = !this.displayInvitePlayers;
-  }
+
+  constructor(private gameDataService: GameDataService) {}
+
   onDisplayChangeCardMode() {
     this.displayChangeCardMode = !this.displayChangeCardMode;
   }
   onCardModeChange(event: any) {
-    this.displayChangeCardMode = false;
+    const newMode = event.target.value;
+    this.gameDataService.setGameInfo({ cardMode: newMode });
   }
   onChangeGameMode() {
-    this.displayChangeCardMode = false;
+    const playerInfo = this.gameDataService.getPlayerInfo();
+    const newMode = (
+      playerInfo.gameMode === 'jugador' ? 'espectador' : 'jugador'
+    ) as GAMEMODE;
+    this.gameDataService.setPlayerInfo({
+      ...playerInfo,
+      gameMode: newMode,
+    });
   }
 }

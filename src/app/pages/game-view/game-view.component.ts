@@ -8,13 +8,11 @@ import {
   SEQUENCE,
   EXTRA_SELECTION_CARDS,
 } from 'src/config/data/game.constant';
-import { zoomIn, zoomOut, fadeIn, fadeOut } from 'src/assets/animations';
 
 @Component({
   selector: 'app-game-view',
   templateUrl: './game-view.component.html',
   styleUrls: ['./game-view.component.css'],
-  animations: [zoomIn, zoomOut, fadeIn, fadeOut],
 })
 export class GameViewComponent {
   // Game info
@@ -49,15 +47,20 @@ export class GameViewComponent {
         this.onCreatePlayer(playerInfo);
       }
     });
+    gameDataService.gameInfo$.subscribe((gameInfo) => {
+      if (gameInfo.cardMode) {
+        this.onCardModeChange(gameInfo.cardMode);
+      }
+    });
   }
 
   onDisplayNewPlayerForm = () => {
     this.displayNewPlayerForm = !this.displayNewPlayerForm;
   };
 
-  onDisplayInvitePlayers(display: boolean) {
-    this.displayInvitePlayers = display;
-  }
+  onDisplayInvitePlayers = () => {
+    this.displayInvitePlayers = !this.displayInvitePlayers;
+  };
 
   onChangeGameMode() {
     this.gameMode =
@@ -67,11 +70,11 @@ export class GameViewComponent {
     this.players[this.players.length - 2].gameMode = this.gameMode;
   }
 
-  onCardModeChange(event: any) {
-    if (!event.target) {
+  onCardModeChange(newMode: string) {
+    if (newMode === this.cardMode || newMode === 'none' || !newMode) {
       return;
     }
-    this.cardMode = event.target.value;
+    this.cardMode = newMode;
     if (this.cardMode === 'random') {
       const RANDOM = Array.from({ length: 11 }, (_, index) =>
         Math.floor(Math.random() * 100)
@@ -91,6 +94,18 @@ export class GameViewComponent {
   }
 
   onCreatePlayer(player: playerInfoInterface) {
+    const playerExist = this.players.find(
+      (playerItem) => playerItem.name === player.name
+    );
+
+    if (playerExist) {
+      this.playerName = player.name;
+      this.playerInitials = player.initials;
+      this.gameMode = player.gameMode;
+      this.players[this.players.length - 2] = player;
+      return;
+    }
+
     this.players = [
       ...this.players.slice(0, this.players.length - 1),
       player,
@@ -102,7 +117,7 @@ export class GameViewComponent {
     this.onDisplayNewPlayerForm();
   }
 
-  onSelectionChange(selection: number | string) {
+  onSelectionChange = (selection: number | string) => {
     if (selection === '?') {
       const randomFibo =
         this.cardsList[Math.floor(Math.random() * this.cardsList.length)];
@@ -116,7 +131,7 @@ export class GameViewComponent {
     this.players[this.players.length - 2].selectedNumber =
       typeof selection === 'number' ? selection : null;
     this.checkSelectionDone();
-  }
+  };
 
   public onRandomSelectionChange = (name: string) => {
     this.players.forEach((player) => {
@@ -143,7 +158,7 @@ export class GameViewComponent {
       : (this.selectionDone = false);
   }
 
-  onDisplayResult() {
+  onDisplayResult = () => {
     // Avarage calculation
     const amountOfPlayers = this.players.filter(
       (player) => player.selectedNumber !== null
@@ -166,9 +181,9 @@ export class GameViewComponent {
       {}
     );
     console.log(this.occurrences);
-  }
+  };
 
-  onNewGame() {
+  onNewGame = () => {
     this.playedNumbers = [];
     this.avarage = 0;
     this.selectionDone = false;
@@ -177,7 +192,7 @@ export class GameViewComponent {
     this.players.forEach((player) => {
       this.onRandomSelectionChange(player.name);
     });
-  }
+  };
 
   public resetSelections = () => {
     this.players.forEach((player) => {

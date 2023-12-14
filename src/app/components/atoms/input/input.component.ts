@@ -13,4 +13,5 @@ export class InputComponent {
   @Input() name: string = '';
   @Input() value: string = '';
   @Input() formControlObject: FormControl = new FormControl();
+  @Input() readonly: boolean = false;
 }

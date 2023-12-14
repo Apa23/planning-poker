@@ -20,6 +20,10 @@
   align-items: center;
 }
 
+.full-w {
+  width: 100%;
+}
+
 /* Global Styles */
 * {
   margin: 0;
