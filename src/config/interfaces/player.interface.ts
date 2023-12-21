@@ -10,4 +10,5 @@ export interface playerInfoInterface {
 
 export interface gameInfoInterface {
   cardMode: CARDMODE;
+  displayInviteModal: boolean;
 }

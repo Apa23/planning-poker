@@ -4,12 +4,10 @@ import { UserLogoComponent } from './user-logo.component';
 import { GameDataService } from '../../../../app/services/game-data.service';
 import { playerInfoInterface } from 'src/config/interfaces/player.interface';
 import { GAMEMODE } from '../../../../config/enums/game.enum';
-import { of } from 'rxjs';
 
 describe('UserLogoComponent', () => {
   let component: UserLogoComponent;
   let fixture: ComponentFixture<UserLogoComponent>;
-  let gameDataService: GameDataService = new GameDataService();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -18,7 +16,6 @@ describe('UserLogoComponent', () => {
   });
 
   beforeEach(() => {
-    TestBed.inject(GameDataService);
     fixture = TestBed.createComponent(UserLogoComponent);
     component = fixture.componentInstance;
     component.displayUserName = true;
@@ -51,5 +48,12 @@ describe('UserLogoComponent', () => {
       selected: false,
       selectedNumber: 0,
     };
+    const spy2 = jest.spyOn(
+      component['gameDataService'].playerInfo$,
+      'subscribe'
+    );
+    component['gameDataService'].setPlayerInfo(playerInfo);
+    expect(component.playerInitials).toEqual('TN');
+    expect(component.playerName).toEqual('Test Name');
   });
 });

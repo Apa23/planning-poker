@@ -13,7 +13,7 @@ export class TableComponent {
   @Input() displayNewPlayerForm: boolean = true;
   @Input() selectionDone: boolean = false;
   @Input() revealResult: boolean = false;
-  @Input() onRandomSelectionChange: (name: string) => void = () => {};
-  @Input() onDisplayResult: () => void = () => {};
-  @Input() onNewGame: () => void = () => {};
+  @Input() onRandomSelectionChange?: (name: string) => void;
+  @Input() onDisplayResult?: (args?: any) => void;
+  @Input() onNewGame?: (args?: any) => void;
 }

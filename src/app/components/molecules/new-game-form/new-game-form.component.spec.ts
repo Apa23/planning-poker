@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { NewGameFormComponent } from './new-game-form.component';
 import { Router } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -7,6 +7,8 @@ import { GameViewComponent } from '../../../pages/game-view/game-view.component'
 
 describe('NewGameFormComponent', () => {
   let router: Router;
+  let component: NewGameFormComponent;
+  let fixture: ComponentFixture<NewGameFormComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -19,13 +21,35 @@ describe('NewGameFormComponent', () => {
         ]),
       ],
     }).compileComponents();
-
-    router = TestBed.inject(Router);
   }));
 
-  it('should create', () => {
-    const fixture = TestBed.createComponent(NewGameFormComponent);
-    const component = fixture.componentInstance;
+  beforeEach(() => {
+    router = TestBed.inject(Router);
+    fixture = TestBed.createComponent(NewGameFormComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  test('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  // Testing onCreateGame() and Output() gameName
+
+  test('should emit gameName', () => {
+    const spy1 = jest.spyOn(component.gameName, 'emit').mockImplementation();
+    const spy2 = jest.spyOn(router, 'navigate').mockImplementation();
+    component.gameNameControl.setValue('Test Name');
+    component.onCreateGame(new Event('submit'));
+    expect(spy1).toHaveBeenCalledWith('Test Name');
+    expect(spy2).toHaveBeenCalledWith(['/game']);
+  });
+
+  test('should emit void string', () => {
+    const spy1 = jest.spyOn(component.gameName, 'emit').mockImplementation();
+    const spy2 = jest.spyOn(router, 'navigate').mockImplementation();
+    component.onCreateGame(new Event('submit'));
+    expect(spy1).toHaveBeenCalledWith('');
+    expect(spy2).toHaveBeenCalledWith(['/game']);
   });
 });

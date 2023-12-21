@@ -34,7 +34,7 @@
             class="reveal-button"
             type="button"
             *ngIf="selectionDone && !revealResult"
-            (click)="onDisplayResult()"
+            (click)="onDisplayResult ? onDisplayResult() : null"
             @fadeIn
           >
             Revelar cartas
@@ -43,7 +43,7 @@
             class="reveal-button"
             type="button"
             *ngIf="revealResult"
-            (click)="onNewGame()"
+            (click)="onNewGame ? onNewGame() : null"
             @fadeOut
           >
             Nueva votación

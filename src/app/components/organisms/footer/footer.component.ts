@@ -15,5 +15,5 @@ export class FooterComponent {
   @Input() selectionCards: (number | string)[] = [];
   @Input() occurrences: any = {};
   @Input() avarage: number = 0;
-  @Input() onSelectionChange: (num: string | number) => void = () => {};
+  @Input() onSelectionChange?: (num: string | number) => void;
 }

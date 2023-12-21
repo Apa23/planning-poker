@@ -12,5 +12,5 @@ export class PlayerCardComponent {
   @Input() selected: boolean = false;
   @Input() selectedNumber: number | null = 0;
   @Input() gameMode: GAMEMODE = GAMEMODE.NONE;
-  @Input() onSelectionChange: (name: string) => void = () => {};
+  @Input() onSelectionChange?: (name: string) => void;
 }

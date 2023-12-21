@@ -23,6 +23,7 @@ export class GameDataService {
   private _gameInfo: BehaviorSubject<gameInfoInterface> =
     new BehaviorSubject<gameInfoInterface>({
       cardMode: CARDMODE.NONE,
+      displayInviteModal: false,
     });
 
   // Observables

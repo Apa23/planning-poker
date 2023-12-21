@@ -12,7 +12,7 @@ export class UserLogoComponent {
   displayUserMenu: boolean = false;
   @Input() displayUserName: boolean = false;
 
-  constructor(gameDataService: GameDataService) {
+  constructor(private gameDataService: GameDataService) {
     gameDataService.playerInfo$.subscribe((playerInfo) => {
       this.playerInitials = playerInfo.initials;
       this.playerName = playerInfo.name;
@@ -22,4 +22,6 @@ export class UserLogoComponent {
   onDisplayUserMenu() {
     this.displayUserMenu = !this.displayUserMenu;
   }
+
+  // TODO: Add change user name functionality
 }

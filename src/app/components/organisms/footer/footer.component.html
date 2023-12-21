@@ -13,7 +13,7 @@
         innerText="{{ number }}"
         class="card number-card selectable"
         [ngClass]="number == playerSelection ? 'selected' : ''"
-        (click)="onSelectionChange(number)"
+        (click)="onSelectionChange ? onSelectionChange(number) : null"
       />
     </ng-container>
   </section>

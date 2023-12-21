@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 export class NewGameFormComponent {
   @Output() gameName: EventEmitter<string> = new EventEmitter<string>();
 
-  submitted = false;
-
   gameNameControl = new FormControl('', [
     Validators.required,
     Validators.minLength(5),
@@ -23,7 +21,6 @@ export class NewGameFormComponent {
 
   onCreateGame(event: Event) {
     event.preventDefault();
-    this.submitted = true;
     this.gameName.emit(this.gameNameControl.value || '');
     this.router.navigate(['/game']);
   }

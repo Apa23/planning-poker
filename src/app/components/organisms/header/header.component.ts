@@ -8,5 +8,4 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
   @Input() gameName: string = '';
   @Input() inGame: boolean = false;
-  @Input() onDisplayInvitePlayers: (args?: any) => void = () => {};
 }

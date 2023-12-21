@@ -1,5 +1,8 @@
 <ng-container *ngIf="gameMode === 'jugador'">
-  <div class="table__player flex-center" (click)="onSelectionChange(name)">
+  <div
+    class="table__player flex-center"
+    (click)="onSelectionChange ? onSelectionChange(name) : null"
+  >
     <div
       class="table__player-card"
       [ngClass]="selected ? 'selected' : ''"

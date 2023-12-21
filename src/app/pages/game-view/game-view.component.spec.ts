@@ -10,8 +10,11 @@ describe('GameViewComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [GameViewComponent],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-    });
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(GameViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

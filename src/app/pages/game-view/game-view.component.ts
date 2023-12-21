@@ -51,6 +51,9 @@ export class GameViewComponent {
       if (gameInfo.cardMode) {
         this.onCardModeChange(gameInfo.cardMode);
       }
+      if (gameInfo.displayInviteModal) {
+        this.onDisplayInvitePlayers();
+      }
     });
   }
 

@@ -11,5 +11,5 @@ export class ModalComponent {
   @Input() header: boolean = false;
   @Input() type: string = '';
   @Input() size: string = 'md';
-  @Input() onClose = () => {};
+  @Input() onClose?: (args?: any) => void;
 }

@@ -11,13 +11,30 @@ describe('NewPlayerFormComponent', () => {
     TestBed.configureTestingModule({
       declarations: [NewPlayerFormComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-    });
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(NewPlayerFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  // Testing the onCreatePlayer() method
+
+  test('should call onCreatePlayer()', () => {
+    const spy = jest.spyOn(component, 'onCreatePlayer');
+    component.onCreatePlayer();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  test('should call setPlayerInfo()', () => {
+    const spy = jest.spyOn(component['gameDataService'], 'setPlayerInfo');
+    component.onCreatePlayer();
+    expect(spy).toHaveBeenCalled();
   });
 });

@@ -18,7 +18,8 @@ export class UserMenuComponent {
   }
   onCardModeChange(event: any) {
     const newMode = event.target.value;
-    this.gameDataService.setGameInfo({ cardMode: newMode });
+    const gameInfo = this.gameDataService.getGameInfo();
+    this.gameDataService.setGameInfo({ ...gameInfo, cardMode: newMode });
   }
   onChangeGameMode() {
     const playerInfo = this.gameDataService.getPlayerInfo();

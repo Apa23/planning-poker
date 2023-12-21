@@ -5,14 +5,30 @@ import { GameDataService } from '../../services/game-data.service';
 
 describe('CreateGameComponent', () => {
   let component: CreateGameComponent;
-  let dataService: GameDataService;
+  let fixture: ComponentFixture<CreateGameComponent>;
 
-  beforeEach(() => {
-    dataService = new GameDataService();
-    component = new CreateGameComponent(dataService);
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [CreateGameComponent],
+    }).compileComponents();
   });
 
-  it('should create', () => {
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CreateGameComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  test('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  // Testing onCreateGame()
+
+  test('should set gameName', () => {
+    const spy1 = jest.spyOn(component['gameDataService'], 'setGameName');
+    component.onCreateGame('test');
+    expect(spy1).toHaveBeenCalled();
+    expect(component.gameName).toBe('test');
   });
 });

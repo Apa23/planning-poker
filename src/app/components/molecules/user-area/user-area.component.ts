@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { GameDataService } from '../../../services/game-data.service';
 
 @Component({
   selector: 'app-user-area',
@@ -6,11 +7,19 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./user-area.component.css'],
 })
 export class UserAreaComponent {
-  playerInitials: string = '';
   displayUserMenu: boolean = false;
-  @Input() onDisplayInvitePlayers: (args?: any) => void = () => {};
+
+  constructor(private gameDataService: GameDataService) {}
 
   onDisplayUserMenu = () => {
     this.displayUserMenu = !this.displayUserMenu;
+  };
+
+  onDisplayInvitePlayerModal = () => {
+    const gameInfo = this.gameDataService.getGameInfo();
+    this.gameDataService.setGameInfo({
+      ...gameInfo,
+      displayInviteModal: true,
+    });
   };
 }
