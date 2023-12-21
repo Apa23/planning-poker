@@ -6,16 +6,31 @@ describe('TitleComponent', () => {
   let component: TitleComponent;
   let fixture: ComponentFixture<TitleComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [TitleComponent],
-    });
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(TitleComponent);
     component = fixture.componentInstance;
+    component.title = 'title-test';
+    component.size = 'large';
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  // Testing the @Input()s
+
+  test('should have title', () => {
+    expect(component.title).toEqual('title-test');
+  });
+
+  test('should have size', () => {
+    expect(component.size).toEqual('large');
   });
 });

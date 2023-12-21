@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { zoomIn, zoomOut } from 'src/assets/animations';
+import { zoomIn, zoomOut } from '../../../../assets/animations';
 
 @Component({
   selector: 'app-footer',

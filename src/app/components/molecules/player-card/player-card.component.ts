@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GAMEMODE } from 'src/config/enums/game.enum';
+import { GAMEMODE } from '../../../../config/enums/game.enum';
 
 @Component({
   selector: 'app-player-card',

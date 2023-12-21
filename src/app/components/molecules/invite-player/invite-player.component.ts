@@ -1,6 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { trigger, transition, style, animate } from '@angular/animations';
-import { fadeIn, fadeOut, zoomIn, zoomOut } from 'src/assets/animations';
+import { Component } from '@angular/core';
+import {
+  fadeIn,
+  fadeOut,
+  zoomIn,
+  zoomOut,
+} from '../../../../assets/animations';
 
 @Component({
   selector: 'app-invite-player',
@@ -13,6 +17,5 @@ export class InvitePlayerComponent {
 
   onCopyLink = () => {
     navigator.clipboard.writeText(this.invitationLink);
-    console.log('%cLink copiado al portapapeles');
   };
 }

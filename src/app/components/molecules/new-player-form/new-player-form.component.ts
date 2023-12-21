@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { playerInfoInterface } from 'src/config/interfaces/player.interface';
-import { GAMEMODE } from 'src/config/enums/game.enum';
-import { GameDataService } from 'src/app/services/game-data.service';
+import { GAMEMODE } from '../../../../config/enums/game.enum';
+import { GameDataService } from '../../../services/game-data.service';
 
 @Component({
   selector: 'app-new-player-form',

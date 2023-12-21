@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { GameDataService } from 'src/app/services/game-data.service';
-import { GAMEMODE } from 'src/config/enums/game.enum';
+import { GameDataService } from '../../../services/game-data.service';
+import { GAMEMODE } from '../../../../config/enums/game.enum';
 
 @Component({
   selector: 'app-user-menu',

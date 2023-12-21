@@ -8,14 +8,29 @@ describe('InputLabelComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [InputLabelComponent]
-    });
+      declarations: [InputLabelComponent],
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(InputLabelComponent);
     component = fixture.componentInstance;
+    component.text = 'text-test';
+    component.for = 'for-test';
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  // Testing the @Input()s
+
+  test('should have text', () => {
+    expect(component.text).toEqual('text-test');
+  });
+
+  test('should have for', () => {
+    expect(component.for).toEqual('for-test');
   });
 });

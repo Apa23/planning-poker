@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { zoomIn } from 'src/assets/animations';
+import { zoomIn } from '../../../../assets/animations';
 
 @Component({
   selector: 'app-modal',

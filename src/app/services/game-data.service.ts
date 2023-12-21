@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { CARDMODE, GAMEMODE } from 'src/config/enums/game.enum';
+import { CARDMODE, GAMEMODE } from '../../config/enums/game.enum';
 import {
   gameInfoInterface,
   playerInfoInterface,
-} from 'src/config/interfaces/player.interface';
+} from '../../config/interfaces/player.interface';
 
 @Injectable({
   providedIn: 'root',

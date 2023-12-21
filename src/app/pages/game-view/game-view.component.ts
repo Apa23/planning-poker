@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { GameDataService } from '../../services/game-data.service';
-import { playerInfoInterface } from 'src/config/interfaces/player.interface';
-import { playersList } from 'src/config/data/players';
-import { GAMEMODE } from 'src/config/enums/game.enum';
+import { playerInfoInterface } from '../../../config/interfaces/player.interface';
+import { playersList } from '../../../config/data/players';
+import { GAMEMODE } from '../../../config/enums/game.enum';
 import {
   FIBONACCI,
   SEQUENCE,
   EXTRA_SELECTION_CARDS,
-} from 'src/config/data/game.constant';
+} from '../../../config/data/game.constant';
 
 @Component({
   selector: 'app-game-view',

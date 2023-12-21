@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { fadeIn, fadeOut } from 'src/assets/animations';
-import { playerInfoInterface } from 'src/config/interfaces/player.interface';
+import { fadeIn, fadeOut } from '../../../../assets/animations';
+import { playerInfoInterface } from '../../../../config/interfaces/player.interface';
 
 @Component({
   selector: 'app-table',

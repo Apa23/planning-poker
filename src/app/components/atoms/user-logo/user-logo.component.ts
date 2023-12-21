@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GameDataService } from 'src/app/services/game-data.service';
+import { GameDataService } from '../../../services/game-data.service';
 
 @Component({
   selector: 'app-user-logo',
