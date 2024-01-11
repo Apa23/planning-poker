@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class InputLabelComponent {
   @Input() text: string = '';
   @Input() for: string = '';
+  @Input() class: string = 'form-label';
 }

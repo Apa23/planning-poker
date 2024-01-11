@@ -19,7 +19,7 @@ export class UserAreaComponent {
     const gameInfo = this.gameDataService.getGameInfo();
     this.gameDataService.setGameInfo({
       ...gameInfo,
-      displayInviteModal: true,
+      displayInviteModal: !gameInfo.displayInviteModal,
     });
   };
 }

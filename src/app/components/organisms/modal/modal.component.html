@@ -2,7 +2,7 @@
   <ng-container *ngIf="header">
     <div class="modal__header flex-center">
       <h4>Invitar jugadores</h4>
-      <app-button type="outlined" [text]="'X'" [action]="onClose" />
+      <app-button type="outlined" [text]="'X'" (click)="onClose()" />
     </div>
   </ng-container>
   <div class="modal__body flex-center" [ngClass]="header ? 'has-header' : ''">

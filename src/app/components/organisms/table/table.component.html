@@ -4,11 +4,12 @@
     <ng-container *ngFor="let player of players.slice(0, 3)">
       <app-player-card
         [name]="player.name"
+        [host]="player.host"
         [initials]="player.initials"
         [gameMode]="player.gameMode"
         [selected]="player.selected"
         [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onRandomSelectionChange"
+        (selectionChange)="onRandomSelectionChange($event)"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>
@@ -17,11 +18,12 @@
     <ng-container *ngFor="let player of players.slice(3, 4)">
       <app-player-card
         [name]="player.name"
+        [host]="player.host"
         [initials]="player.initials"
         [gameMode]="player.gameMode"
         [selected]="player.selected"
         [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onRandomSelectionChange"
+        (selectionChange)="onRandomSelectionChange($event)"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>
@@ -34,7 +36,7 @@
             class="reveal-button"
             type="button"
             *ngIf="selectionDone && !revealResult"
-            (click)="onDisplayResult ? onDisplayResult() : null"
+            (click)="onDisplayResult($event)"
             @fadeIn
           >
             Revelar cartas
@@ -43,7 +45,7 @@
             class="reveal-button"
             type="button"
             *ngIf="revealResult"
-            (click)="onNewGame ? onNewGame() : null"
+            (click)="onNewGame($event)"
             @fadeOut
           >
             Nueva votación
@@ -56,11 +58,12 @@
     <ng-container *ngFor="let player of players.slice(4, 5)">
       <app-player-card
         [name]="player.name"
+        [host]="player.host"
         [initials]="player.initials"
         [gameMode]="player.gameMode"
         [selected]="player.selected"
         [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onRandomSelectionChange"
+        (selectionChange)="onRandomSelectionChange($event)"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>
@@ -69,11 +72,12 @@
     <ng-container *ngFor="let player of players.slice(5)">
       <app-player-card
         [name]="player.name"
+        [host]="player.host"
         [initials]="player.initials"
         [gameMode]="player.gameMode"
         [selected]="player.selected"
         [selectedNumber]="player.selectedNumber"
-        [onSelectionChange]="onRandomSelectionChange"
+        (selectionChange)="onRandomSelectionChange($event)"
         *ngIf="!displayNewPlayerForm"
       />
     </ng-container>

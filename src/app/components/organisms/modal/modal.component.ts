@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { zoomIn } from '../../../../assets/animations';
 
 @Component({
@@ -11,5 +11,9 @@ export class ModalComponent {
   @Input() header: boolean = false;
   @Input() type: string = '';
   @Input() size: string = 'md';
-  @Input() onClose?: (args?: any) => void;
+  @Output() close: EventEmitter<any> = new EventEmitter<any>();
+
+  onClose() {
+    this.close.emit();
+  }
 }

@@ -19,9 +19,8 @@ export class NewGameFormComponent {
 
   constructor(private router: Router) {}
 
-  onCreateGame(event: Event) {
-    event.preventDefault();
-    this.gameName.emit(this.gameNameControl.value || '');
+  onCreateGame() {
+    this.gameName.emit(this.gameNameControl.value ?? '');
     this.router.navigate(['/game']);
   }
 }

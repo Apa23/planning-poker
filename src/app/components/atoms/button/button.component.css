@@ -8,6 +8,7 @@
   cursor: pointer;
   padding: 0.5rem 2rem;
   margin: 1rem auto 0 auto;
+  transition: all 0.1s linear;
 }
 
 .button__filled:hover {
@@ -22,6 +23,7 @@
 }
 
 .button__outlined {
+  transition: all 0.1s linear;
   background-color: transparent;
   border: 1px solid white;
   color: white;

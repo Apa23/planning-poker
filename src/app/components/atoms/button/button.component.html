@@ -3,7 +3,7 @@
   [ngClass]="'button__' + type"
   type="submit"
   [disabled]="disabled"
-  (click)="action ? action() : null"
+  (click)="onClick($event)"
 >
   {{ text }}
 </button>

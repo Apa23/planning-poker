@@ -1,36 +1,46 @@
-<form class="single-form" [formGroup]="newPlayerForm">
+<form class="single-form" [formGroup]="newPlayerForm" >
   <app-input-label for="player-name" text="Tu Nombre" />
   <app-input
     type="text"
     name="player-name"
     [formControlObject]="newPlayerForm.controls.playerName"
   />
-  <div class="button-group flex-center">
+  <form class="button-group" [formGroup]="newPlayerForm">
     <div class="button-group__section">
-      <app-input-label for="player-mode" text="Jugador" />
+      <app-input-label for="player-mode" text="Jugador" class="button-label" />
       <input
         type="radio"
         id="player-mode"
         name="gameMode"
         value="Jugador"
-        [formControl]="newPlayerForm.controls.gameMode"
+        checked
+        (change)="onChangeGameMode($event)"
       />
     </div>
     <div class="button-group__section">
-      <app-input-label for="viewer-mode" text="Espectador" />
+      <app-input-label for="viewer-mode" text="Espectador" class="button-label" />
       <input
         type="radio"
         id="viewer-mode"
         name="gameMode"
         value="Espectador"
-        [formControl]="newPlayerForm.controls.gameMode"
+        (change)="onChangeGameMode($event)"
+
       />
     </div>
-  </div>
-  <app-button
+  </form>
+  <div class="button-group">
+
+    <app-button
+    class="flex-center"
+    text="Cancelar"
+    (click)="onCancel()"
+    />
+    <app-button
     class="flex-center"
     text="Continuar"
     [disabled]="newPlayerForm.invalid"
-    [action]="onCreatePlayer"
-  />
+    (click)="onCreatePlayer()"
+    />
+  </div>
 </form>

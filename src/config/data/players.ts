@@ -9,6 +9,8 @@ export const playersList: playerInfoInterface[] = [
     gameMode: GAMEMODE.JUGADOR,
     selected: true,
     selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
+    host: false,
+
   },
   {
     name: 'Dan',
@@ -16,6 +18,8 @@ export const playersList: playerInfoInterface[] = [
     gameMode: GAMEMODE.JUGADOR,
     selected: true,
     selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
+    host: false,
+
   },
   {
     name: 'Angie',
@@ -23,6 +27,8 @@ export const playersList: playerInfoInterface[] = [
     gameMode: GAMEMODE.JUGADOR,
     selected: false,
     selectedNumber: null,
+    host: false,
+
   },
   {
     name: 'Mark',
@@ -30,6 +36,8 @@ export const playersList: playerInfoInterface[] = [
     gameMode: GAMEMODE.JUGADOR,
     selected: true,
     selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
+    host: false,
+
   },
   {
     name: 'Peter',
@@ -37,6 +45,8 @@ export const playersList: playerInfoInterface[] = [
     gameMode: GAMEMODE.JUGADOR,
     selected: true,
     selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
+    host: false,
+
   },
   {
     name: 'Luis',
@@ -44,6 +54,7 @@ export const playersList: playerInfoInterface[] = [
     gameMode: GAMEMODE.JUGADOR,
     selected: true,
     selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
+    host: false,
   },
   {
     name: 'Maria',
@@ -51,5 +62,7 @@ export const playersList: playerInfoInterface[] = [
     gameMode: GAMEMODE.JUGADOR,
     selected: true,
     selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
+    host: false,
+
   },
 ];

@@ -6,9 +6,9 @@
   [displayNewPlayerForm]="displayNewPlayerForm"
   [selectionDone]="selectionDone"
   [revealResult]="revealResult"
-  [onRandomSelectionChange]="onRandomSelectionChange"
-  [onDisplayResult]="onDisplayResult"
-  [onNewGame]="onNewGame"
+  (randomSelectionChange)="onRandomSelectionChange($event)"
+  (displayResult)="onDisplayResult()"
+  (newGame)="onNewGame()"
 />
 
 <!-- Footer  -->
@@ -22,7 +22,7 @@
   [revealResult]="revealResult"
   [occurrences]="occurrences"
   [avarage]="avarage"
-  [onSelectionChange]="onSelectionChange"
+  (selectionChange)="onSelectionChange($event)"
 />
 
 <!-- Player name modal -->
@@ -36,7 +36,7 @@
 <app-modal
   class="modal flex-center"
   *ngIf="displayInvitePlayers"
-  [onClose]="onDisplayInvitePlayers"
+  (close)="onDisplayInvitePlayers()"
   [header]="true"
   type="invite"
   size="lg"

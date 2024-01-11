@@ -6,6 +6,7 @@ export interface playerInfoInterface {
   gameMode: GAMEMODE;
   selected: boolean;
   selectedNumber: number | null;
+  host: boolean;
 }
 
 export interface gameInfoInterface {

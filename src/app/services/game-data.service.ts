@@ -19,6 +19,7 @@ export class GameDataService {
       gameMode: GAMEMODE.NONE,
       selected: false,
       selectedNumber: null,
+      host: false,
     });
   private _gameInfo: BehaviorSubject<gameInfoInterface> =
     new BehaviorSubject<gameInfoInterface>({

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { GameDataService } from '../../services/game-data.service';
 import { playerInfoInterface } from '../../../config/interfaces/player.interface';
 import { playersList } from '../../../config/data/players';
@@ -40,8 +42,13 @@ export class GameViewComponent {
   gameMode = GAMEMODE.NONE;
   playerSelection: number | string | null = null;
 
-  constructor(private gameDataService: GameDataService) {
+  constructor(private gameDataService: GameDataService, private router: Router) {
     this.gameName = this.gameDataService.getGameName();
+
+    if(this.gameName === '') {
+      this.router.navigate(['/']);
+    }
+
     gameDataService.playerInfo$.subscribe((playerInfo) => {
       if (playerInfo.name) {
         this.onCreatePlayer(playerInfo);
@@ -121,7 +128,15 @@ export class GameViewComponent {
   }
 
   onSelectionChange = (selection: number | string) => {
+
+    if (this.playerSelection === selection) {
+      this.playerSelection = null;
+      this.players[this.players.length - 2].selected = false;
+      this.players[this.players.length - 2].selectedNumber = null;
+      return;
+    }
     if (selection === '?') {
+      
       const randomFibo =
         this.cardsList[Math.floor(Math.random() * this.cardsList.length)];
       this.players[this.players.length - 2].selected = true;
@@ -129,6 +144,7 @@ export class GameViewComponent {
       this.playerSelection = '?';
       return;
     }
+
     this.playerSelection = selection;
     this.players[this.players.length - 2].selected = true;
     this.players[this.players.length - 2].selectedNumber =

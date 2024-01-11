@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { zoomIn, zoomOut } from '../../../../assets/animations';
 
 @Component({
@@ -15,5 +15,9 @@ export class FooterComponent {
   @Input() selectionCards: (number | string)[] = [];
   @Input() occurrences: any = {};
   @Input() avarage: number = 0;
-  @Input() onSelectionChange?: (num: string | number) => void;
+  @Output() selectionChange: EventEmitter<string | number> = new EventEmitter<string | number>();
+
+  onSelectionChange = (selection: string | number) => {
+    this.selectionChange.emit(selection);
+  };
 }

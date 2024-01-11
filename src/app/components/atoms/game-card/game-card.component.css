@@ -12,3 +12,21 @@
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 }
+
+.tooltip-text {
+  visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    color: white;
+    font-size: 10px;
+    background-color: #192733;
+    border-radius: 10px;
+    padding: 10px 10px;
+    bottom: 127px;
+    text-align: center;
+}
+
+.card__border:hover .tooltip-text {
+  visibility: visible;
+}

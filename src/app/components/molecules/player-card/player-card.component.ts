@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GAMEMODE } from '../../../../config/enums/game.enum';
 
 @Component({
@@ -12,5 +12,10 @@ export class PlayerCardComponent {
   @Input() selected: boolean = false;
   @Input() selectedNumber: number | null = 0;
   @Input() gameMode: GAMEMODE = GAMEMODE.NONE;
-  @Input() onSelectionChange?: (name: string) => void;
+  @Input() host: boolean = false;
+  @Output() selectionChange: EventEmitter<string> = new EventEmitter<string>();
+
+  onSelectionChange = (event: any) => {
+    this.selectionChange.emit(this.name);
+  };
 }

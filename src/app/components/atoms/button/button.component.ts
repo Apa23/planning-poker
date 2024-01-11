@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BUTTON_TYPE } from '../../../../config/enums/app.enums';
 
 @Component({
@@ -12,5 +12,11 @@ export class ButtonComponent {
   @Input() type: string = BUTTON_TYPE.FILLED;
   @Input() disabled: boolean = false;
   @Input() location: string = '';
-  @Input() action?: (args?: any) => void;
+  @Output() click: EventEmitter<any> = new EventEmitter<any>();
+
+
+  onClick(event: Event) {
+    event.preventDefault();
+    this.click.emit();
+  }
 }

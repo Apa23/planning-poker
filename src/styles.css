@@ -55,15 +55,6 @@ footer {
   flex-direction: column;
 }
 
-/* Forms styles */
-.single-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-/* Button styles */
-
 /* Notification styles */
 
 .notification {

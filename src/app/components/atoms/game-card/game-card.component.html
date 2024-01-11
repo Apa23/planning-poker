@@ -1,4 +1,8 @@
 <div class="card__border flex-center">
+  <span *ngIf="showToolTip" class="tooltip-text">{{tooltip}}</span>
   <h2>{{ innerText }}</h2>
 </div>
 <p class="card-caption">{{ footerText }}</p>
+
+
+
