@@ -60,7 +60,7 @@ describe('UserMenuComponent', () => {
 
   // Testing onChangeGameMode()
 
-  test('should call onChangeGameMode()', () => {
+  test('should set game mode to Espectador', () => {
     const spy1 = jest.spyOn(component, 'onChangeGameMode');
     const spy2 = jest
       .spyOn(component['gameDataService'], 'getPlayerInfo')
@@ -70,11 +70,11 @@ describe('UserMenuComponent', () => {
         selected: false,
         selectedNumber: null,
         gameMode: GAMEMODE.JUGADOR,
+        host: false,
       });
     const spy3 = jest.spyOn(component['gameDataService'], 'setPlayerInfo');
     component.onChangeGameMode();
     expect(spy1).toHaveBeenCalled();
-    expect(spy2).toHaveBeenCalled();
 
     if (spy2.mock.results[0].value.gameMode === 'jugador') {
       expect(spy3).toHaveBeenCalledWith({
@@ -83,6 +83,7 @@ describe('UserMenuComponent', () => {
         selected: false,
         selectedNumber: null,
         gameMode: 'espectador',
+        host: false,
       });
     } else {
       expect(spy3).toHaveBeenCalledWith({
@@ -91,6 +92,44 @@ describe('UserMenuComponent', () => {
         selected: false,
         selectedNumber: null,
         gameMode: 'jugador',
+        host: false,
+      });
+    }
+  });
+
+  test('should set game mode to Jugador', () => {
+    const spy1 = jest.spyOn(component, 'onChangeGameMode');
+    const spy2 = jest
+      .spyOn(component['gameDataService'], 'getPlayerInfo')
+      .mockReturnValue({
+        name: 'Test Name',
+        initials: 'TN',
+        selected: false,
+        selectedNumber: null,
+        gameMode: GAMEMODE.ESPECTADOR,
+        host: false,
+      });
+    const spy3 = jest.spyOn(component['gameDataService'], 'setPlayerInfo');
+    component.onChangeGameMode();
+    expect(spy1).toHaveBeenCalled();
+
+    if (spy2.mock.results[0].value.gameMode === 'jugador') {
+      expect(spy3).toHaveBeenCalledWith({
+        name: 'Test Name',
+        initials: 'TN',
+        selected: false,
+        selectedNumber: null,
+        gameMode: 'espectador',
+        host: false,
+      });
+    } else {
+      expect(spy3).toHaveBeenCalledWith({
+        name: 'Test Name',
+        initials: 'TN',
+        selected: false,
+        selectedNumber: null,
+        gameMode: 'jugador',
+        host: false,
       });
     }
   });

@@ -42,10 +42,13 @@ export class GameViewComponent {
   gameMode = GAMEMODE.NONE;
   playerSelection: number | string | null = null;
 
-  constructor(private gameDataService: GameDataService, private router: Router) {
+  constructor(
+    private gameDataService: GameDataService,
+    private router: Router
+  ) {
     this.gameName = this.gameDataService.getGameName();
 
-    if(this.gameName === '') {
+    if (this.gameName === '') {
       this.router.navigate(['/']);
     }
 
@@ -128,7 +131,6 @@ export class GameViewComponent {
   }
 
   onSelectionChange = (selection: number | string) => {
-
     if (this.playerSelection === selection) {
       this.playerSelection = null;
       this.players[this.players.length - 2].selected = false;
@@ -136,7 +138,6 @@ export class GameViewComponent {
       return;
     }
     if (selection === '?') {
-      
       const randomFibo =
         this.cardsList[Math.floor(Math.random() * this.cardsList.length)];
       this.players[this.players.length - 2].selected = true;
@@ -152,29 +153,26 @@ export class GameViewComponent {
     this.checkSelectionDone();
   };
 
-  public onRandomSelectionChange = (name: string) => {
+  onRandomSelectionChange = (name: string) => {
     this.players.forEach((player) => {
       if (player.name === name) {
         player.selected = !player.selected;
-        player.selected
-          ? (player.selectedNumber =
-              this.cardsList[Math.floor(Math.random() * this.cardsList.length)])
-          : (player.selectedNumber = 0);
+        player.selectedNumber = player.selected
+          ? this.cardsList[Math.floor(Math.random() * this.cardsList.length)]
+          : 0;
       }
     });
     this.checkSelectionDone();
   };
 
   checkSelectionDone() {
-    this.players.every((player) => {
+    this.selectionDone = this.players.every((player) => {
       if (player.gameMode === GAMEMODE.ESPECTADOR) {
         return true;
       } else {
         return player.selected;
       }
-    })
-      ? (this.selectionDone = true)
-      : (this.selectionDone = false);
+    });
   }
 
   onDisplayResult = () => {
@@ -182,13 +180,16 @@ export class GameViewComponent {
     const amountOfPlayers = this.players.filter(
       (player) => player.selectedNumber !== null
     ).length;
-    this.playedNumbers = this.players.map((player) => {
-      if (player.selectedNumber) {
-        return player.selectedNumber;
-      } else {
-        return 0;
-      }
-    });
+    this.playedNumbers = this.players
+      .map((player) => {
+        if (player.selectedNumber) {
+          return player.selectedNumber;
+        } else {
+          return 0;
+        }
+      })
+      .filter((n) => n !== 0);
+
     this.avarage = (
       this.playedNumbers.map((n) => n).reduce((a, b) => a + b) / amountOfPlayers
     ).toFixed(2) as any;
@@ -199,7 +200,6 @@ export class GameViewComponent {
       (acc: any, curr: any) => ((acc[curr] = (acc[curr] || 0) + 1), acc),
       {}
     );
-    console.log(this.occurrences);
   };
 
   onNewGame = () => {
@@ -213,7 +213,7 @@ export class GameViewComponent {
     });
   };
 
-  public resetSelections = () => {
+  resetSelections = () => {
     this.players.forEach((player) => {
       player.selected = false;
       player.selectedNumber = null;

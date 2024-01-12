@@ -23,6 +23,7 @@ describe('TableComponent', () => {
         selected: false,
         gameMode: GAMEMODE.ESPECTADOR,
         selectedNumber: 0,
+        host: false,
       },
       {
         name: 'test2',
@@ -30,20 +31,12 @@ describe('TableComponent', () => {
         selected: false,
         gameMode: GAMEMODE.ESPECTADOR,
         selectedNumber: 0,
+        host: false,
       },
     ];
     component.displayNewPlayerForm = true;
     component.selectionDone = false;
     component.revealResult = false;
-    component.onRandomSelectionChange = (name) => {
-      return 'this is a ' + name + '!';
-    };
-    component.onDisplayResult = (input) => {
-      return 'this is a ' + input + '!';
-    };
-    component.onNewGame = (input) => {
-      return 'this is a ' + input + '!';
-    };
     fixture.detectChanges();
   });
 
@@ -61,6 +54,7 @@ describe('TableComponent', () => {
         selected: false,
         gameMode: GAMEMODE.ESPECTADOR,
         selectedNumber: 0,
+        host: false,
       },
       {
         name: 'test2',
@@ -68,6 +62,7 @@ describe('TableComponent', () => {
         selected: false,
         gameMode: GAMEMODE.ESPECTADOR,
         selectedNumber: 0,
+        host: false,
       },
     ];
     expect(component.players).toEqual(players);
@@ -85,23 +80,26 @@ describe('TableComponent', () => {
     expect(component.revealResult).toEqual(false);
   });
 
-  test('should have onRandomSelectionChange', () => {
-    if (component.onRandomSelectionChange) {
-      expect(component.onRandomSelectionChange('test')).toEqual(
-        'this is a test!'
-      );
-    }
+
+  // Testing @Output()s
+
+  test('should emit player name who made a selection', () => {
+    const spy = jest.spyOn(component.randomSelectionChange, 'emit').mockImplementation();
+    component.onRandomSelectionChange('test name');
+    expect(spy).toHaveBeenCalledWith('test name');
   });
 
-  test('should have onDisplayResult', () => {
-    if (component.onDisplayResult) {
-      expect(component.onDisplayResult('test')).toEqual('this is a test!');
-    }
-  });
+  test('should emit display result', () =>{
+    const spy = jest.spyOn(component.displayResult, 'emit').mockImplementation();
+    component.onDisplayResult(new Event('click'));
+    expect(spy).toHaveBeenCalled();
+  })
 
-  test('should have onNewGame', () => {
-    if (component.onNewGame) {
-      expect(component.onNewGame('test')).toEqual('this is a test!');
-    }
-  });
+  test('should emit new game creation', () =>{
+    const spy = jest.spyOn(component.newGame, 'emit').mockImplementation();
+    component.onNewGame(new Event('click'));
+    expect(spy).toHaveBeenCalled();
+  })
+
+
 });

@@ -20,9 +20,6 @@ describe('ModalComponent', () => {
     component.header = true;
     component.type = 'test';
     component.size = 'md';
-    component.onClose = (num) => {
-      return num + 1;
-    };
     fixture.detectChanges();
   });
 
@@ -44,18 +41,12 @@ describe('ModalComponent', () => {
     expect(component.size).toEqual('md');
   });
 
-  test('should have onClose', () => {
-    expect(component.onClose).toBeTruthy();
+  // Testing @Output()s
+
+  test('should emit close', () => {
+    const spy = jest.spyOn(component.close, 'emit');
+    component.onClose();
+    expect(spy).toHaveBeenCalled();
   });
 
-  // Testing onClose()
-
-  test('should call onClose()', () => {
-    if (component.onClose) {
-      const spy = jest.spyOn(component, 'onClose');
-      component.onClose(1);
-      expect(spy).toHaveBeenCalled();
-      expect(component.onClose(1)).toEqual(2);
-    }
-  });
 });

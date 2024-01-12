@@ -37,4 +37,23 @@ describe('GameCardComponent', () => {
   test('should have selected', () => {
     expect(component.selected).toEqual(true);
   });
+
+  // Testing OnInit
+  test('should set tooltip text to Seleccionar #', () => {
+    component.innerText = '1';
+    component.ngOnInit();
+    expect(component.tooltip).toEqual('Seleccionar 1');
+  });
+
+  test('should set tooltip text to Pasar', () => {
+    component.innerText = '☕️';
+    component.ngOnInit();
+    expect(component.tooltip).toEqual('Pasar');
+  });
+
+  test('should set tooltip text to Selección aleatoria', () => {
+    component.innerText = '?';
+    component.ngOnInit();
+    expect(component.tooltip).toEqual('Selección aleatoria');
+  });
 });

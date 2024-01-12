@@ -40,7 +40,7 @@ describe('NewGameFormComponent', () => {
     const spy1 = jest.spyOn(component.gameName, 'emit').mockImplementation();
     const spy2 = jest.spyOn(router, 'navigate').mockImplementation();
     component.gameNameControl.setValue('Test Name');
-    component.onCreateGame(new Event('submit'));
+    component.onCreateGame();
     expect(spy1).toHaveBeenCalledWith('Test Name');
     expect(spy2).toHaveBeenCalledWith(['/game']);
   });
@@ -48,8 +48,11 @@ describe('NewGameFormComponent', () => {
   test('should emit void string', () => {
     const spy1 = jest.spyOn(component.gameName, 'emit').mockImplementation();
     const spy2 = jest.spyOn(router, 'navigate').mockImplementation();
-    component.onCreateGame(new Event('submit'));
+    component.gameNameControl.setValue(null);
+    component.onCreateGame();
     expect(spy1).toHaveBeenCalledWith('');
     expect(spy2).toHaveBeenCalledWith(['/game']);
   });
+
+
 });

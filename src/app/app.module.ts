@@ -12,7 +12,6 @@ import { GameDataService } from './services/game-data.service';
 import { GameCardComponent } from './components/atoms/game-card/game-card.component';
 import { PlayerCardComponent } from './components/molecules/player-card/player-card.component';
 import { InvitePlayerComponent } from './components/molecules/invite-player/invite-player.component';
-import { NotificationComponent } from './components/shared/notification/notification.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonComponent } from './components/atoms/button/button.component';
 import { InputComponent } from './components/atoms/input/input.component';
@@ -37,7 +36,6 @@ import { TableComponent } from './components/organisms/table/table.component';
     GameCardComponent,
     PlayerCardComponent,
     InvitePlayerComponent,
-    NotificationComponent,
     ButtonComponent,
     InputComponent,
     InputLabelComponent,

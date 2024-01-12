@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateGameComponent } from './create-game.component';
-import { GameDataService } from '../../services/game-data.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('CreateGameComponent', () => {
   let component: CreateGameComponent;
@@ -10,6 +10,7 @@ describe('CreateGameComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CreateGameComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 

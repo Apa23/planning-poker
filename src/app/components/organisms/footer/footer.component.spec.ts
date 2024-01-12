@@ -22,9 +22,6 @@ describe('FooterComponent', () => {
     component.selectionCards = [1, 2, 3];
     component.occurrences = { 1: 1, 2: 1, 3: 1 };
     component.avarage = 1;
-    component.onSelectionChange = (num: string | number) => {
-      return num;
-    };
     fixture.detectChanges();
   });
 
@@ -62,18 +59,12 @@ describe('FooterComponent', () => {
     expect(component.avarage).toEqual(1);
   });
 
-  test('should have onSelectionChange', () => {
-    expect(component.onSelectionChange).toBeTruthy();
-  });
+  // Testing the @Output()s
 
-  // Testing onSelectionChange()
-
-  test('should call onSelectionChange()', () => {
-    if (component.onSelectionChange) {
-      const spy = jest.spyOn(component, 'onSelectionChange');
-      component.onSelectionChange(1);
-      expect(spy).toHaveBeenCalled();
-      expect(component.onSelectionChange(1)).toEqual(1);
-    }
+  test('should emit selectiom', () => {
+    const selection = 1;
+    const spy1 = jest.spyOn(component.selectionChange, 'emit').mockImplementation();
+    component.onSelectionChange(selection);
+    expect(spy1).toHaveBeenCalledWith(selection);
   });
 });

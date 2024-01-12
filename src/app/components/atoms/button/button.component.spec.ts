@@ -20,9 +20,6 @@ describe('ButtonComponent', () => {
     component.type = 'filled';
     component.disabled = false;
     component.location = 'middle table';
-    component.action = (arg) => {
-      return arg + 1;
-    };
     fixture.detectChanges();
   });
 
@@ -52,9 +49,11 @@ describe('ButtonComponent', () => {
     expect(component.location).toEqual('middle table');
   });
 
-  test('should have action', () => {
-    if (component.action) {
-      expect(component.action(1)).toEqual(2);
-    }
+  // Testing @Output() click
+
+  test('should emit click', () => {
+    const spy = jest.spyOn(component.click, 'emit').mockImplementation();
+    component.onClick(new Event('click'));
+    expect(spy).toHaveBeenCalled();
   });
 });

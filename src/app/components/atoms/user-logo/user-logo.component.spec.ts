@@ -39,7 +39,7 @@ describe('UserLogoComponent', () => {
     expect(component.displayUserMenu).toEqual(true);
   });
 
-  // TODO: Testing the playerInfo$ subscription
+  // Testing the playerInfo$ subscription
   test('should have playerInfo', () => {
     const playerInfo: playerInfoInterface = {
       name: 'Test Name',
@@ -47,6 +47,7 @@ describe('UserLogoComponent', () => {
       gameMode: GAMEMODE.NONE,
       selected: false,
       selectedNumber: 0,
+      host: false,
     };
     const spy2 = jest.spyOn(
       component['gameDataService'].playerInfo$,

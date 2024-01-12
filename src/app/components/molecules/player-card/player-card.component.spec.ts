@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlayerCardComponent } from './player-card.component';
 import { GAMEMODE } from '../../../../config/enums/game.enum';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('PlayerCardComponent', () => {
   let component: PlayerCardComponent;
@@ -10,6 +11,7 @@ describe('PlayerCardComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [PlayerCardComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 
@@ -21,9 +23,6 @@ describe('PlayerCardComponent', () => {
     component.selected = true;
     component.selectedNumber = 1;
     component.gameMode = GAMEMODE.JUGADOR;
-    component.onSelectionChange = (name: string) => {
-      return 'This is your name:' + name;
-    };
     fixture.detectChanges();
   });
 
@@ -53,16 +52,11 @@ describe('PlayerCardComponent', () => {
     expect(component.gameMode).toEqual(GAMEMODE.JUGADOR);
   });
 
-  // Testing onSelectionChange()
-
-  test('should call onSelectionChange()', () => {
-    if (component.onSelectionChange) {
-      const spy = jest.spyOn(component, 'onSelectionChange');
-      component.onSelectionChange('Test Name');
-      expect(spy).toHaveBeenCalled();
-      expect(component.onSelectionChange('Test Name')).toEqual(
-        'This is your name:' + 'Test Name'
-      );
-    }
+  // Testing @Output() 
+  test('Should emit selection change', () => {
+    const spy = jest.spyOn(component.selectionChange, 'emit').mockImplementation();
+    component.name = 'Test Name';
+    component.onSelectionChange('Test Name');
+    expect(spy).toHaveBeenCalled();
   });
 });
