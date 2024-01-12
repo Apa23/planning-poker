@@ -8,7 +8,10 @@ import {
   FIBONACCI,
   SEQUENCE,
 } from '../../../config/data/game.constant';
-import { gameInfoInterface, playerInfoInterface } from '../../../config/interfaces/player.interface';
+import {
+  gameInfoInterface,
+  playerInfoInterface,
+} from '../../../config/interfaces/player.interface';
 
 describe('GameViewComponent', () => {
   let component: GameViewComponent;
@@ -42,10 +45,6 @@ describe('GameViewComponent', () => {
       host: false,
     };
     const spy1 = jest.spyOn(component, 'onCreatePlayer').mockImplementation();
-    const spy2 = jest.spyOn(
-      component['gameDataService'].playerInfo$,
-      'subscribe'
-    ).mockImplementation();
     component['gameDataService'].setPlayerInfo(playerInfo);
     expect(spy1).toHaveBeenCalledWith(playerInfo);
   });
@@ -57,10 +56,7 @@ describe('GameViewComponent', () => {
       displayInviteModal: true,
     };
     const spy1 = jest.spyOn(component, 'onCardModeChange').mockImplementation();
-    const spy2 = jest.spyOn(
-      component['gameDataService'].gameInfo$,
-      'subscribe'
-    ).mockImplementation();
+
     component['gameDataService'].setGameInfo(gameInfo);
     expect(spy1).toHaveBeenCalledWith(gameInfo.cardMode);
   });
@@ -70,11 +66,10 @@ describe('GameViewComponent', () => {
       cardMode: CARDMODE.FIBONACCI,
       displayInviteModal: true,
     };
-    const spy1 = jest.spyOn(component, 'onDisplayInvitePlayers').mockImplementation();
-    const spy2 = jest.spyOn(
-      component['gameDataService'].gameInfo$,
-      'subscribe'
-    ).mockImplementation();
+    const spy1 = jest
+      .spyOn(component, 'onDisplayInvitePlayers')
+      .mockImplementation();
+
     component['gameDataService'].setGameInfo(gameInfo);
     expect(spy1).toHaveBeenCalled();
   });

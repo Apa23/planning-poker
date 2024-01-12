@@ -48,10 +48,6 @@ export class GameViewComponent {
   ) {
     this.gameName = this.gameDataService.getGameName();
 
-    if (this.gameName === '') {
-      this.router.navigate(['/']);
-    }
-
     gameDataService.playerInfo$.subscribe((playerInfo) => {
       if (playerInfo.name) {
         this.onCreatePlayer(playerInfo);
@@ -65,6 +61,12 @@ export class GameViewComponent {
         this.onDisplayInvitePlayers();
       }
     });
+  }
+
+  ngOnInit(): void {
+    if (this.gameName === '') {
+      this.router.navigate(['/']);
+    }
   }
 
   onDisplayNewPlayerForm = () => {
@@ -196,10 +198,10 @@ export class GameViewComponent {
     this.revealResult = true;
 
     // Occurrences calculation
-    this.occurrences = this.playedNumbers.reduce(
-      (acc: any, curr: any) => ((acc[curr] = (acc[curr] || 0) + 1), acc),
-      {}
-    );
+    this.occurrences = this.playedNumbers.reduce((acc: any, curr: any) => {
+      acc[curr] = (acc[curr] || 0) + 1;
+      return acc;
+    }, {});
   };
 
   onNewGame = () => {

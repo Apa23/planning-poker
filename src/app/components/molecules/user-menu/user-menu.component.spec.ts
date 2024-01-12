@@ -133,4 +133,26 @@ describe('UserMenuComponent', () => {
       });
     }
   });
+
+  // Testing onExitGame()
+  test('should call set default values and navigate to home', () => {
+    const spy1 = jest.spyOn(component['gameDataService'], 'setGameInfo');
+    const spy2 = jest.spyOn(component['gameDataService'], 'setPlayerInfo');
+    const spy3 = jest.spyOn(component['router'], 'navigate');
+    component.onExitGame();
+    expect(spy1).toHaveBeenCalledWith({
+      displayInviteModal: false,
+      cardMode: CARDMODE.NONE,
+    });
+    expect(spy2).toHaveBeenCalledWith({
+      name: '',
+      initials: '',
+      selected: false,
+      selectedNumber: null,
+      gameMode: GAMEMODE.NONE,
+      host: false,
+    });
+    expect(spy3).toHaveBeenCalledWith(['/']);
+  });
+
 });

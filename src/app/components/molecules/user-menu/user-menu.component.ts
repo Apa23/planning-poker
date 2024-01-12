@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { GameDataService } from '../../../services/game-data.service';
-import { GAMEMODE } from '../../../../config/enums/game.enum';
+import { CARDMODE, GAMEMODE } from '../../../../config/enums/game.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-menu',
@@ -11,7 +12,7 @@ export class UserMenuComponent {
   @Input() displayUserMenu: boolean = false;
   displayChangeCardMode: boolean = false;
 
-  constructor(private gameDataService: GameDataService) {}
+  constructor(private gameDataService: GameDataService, private router: Router) {}
 
   onDisplayChangeCardMode() {
     this.displayChangeCardMode = !this.displayChangeCardMode;
@@ -31,4 +32,20 @@ export class UserMenuComponent {
       gameMode: newMode,
     });
   }
+  onExitGame = () => {
+    this.gameDataService.setGameInfo({
+      displayInviteModal: false,
+      cardMode: CARDMODE.NONE,
+    });
+    this.gameDataService.setPlayerInfo({
+      name: '',
+      gameMode: GAMEMODE.NONE,
+      host: false,
+      initials: '',
+      selected: false,
+      selectedNumber: null,
+    });
+    this.router.navigate(['/']);
+
+  };
 }
