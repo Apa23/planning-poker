@@ -33,14 +33,15 @@ export class NewPlayerFormComponent {
 
   onCreatePlayer = () => {
     const player = {
-      name: this.newPlayerForm.get('playerName')?.value || '',
-      initials: this.newPlayerForm.get('playerName')?.value?.slice(0, 2) || '',
+      name: this.newPlayerForm.get('playerName')?.value ?? '',
+      initials: this.newPlayerForm.get('playerName')?.value?.slice(0, 2) ?? '',
       gameMode: this.newPlayerForm
         .get('gameMode')
         ?.value?.toLowerCase() as GAMEMODE,
       selected: false,
       selectedNumber: null,
       host: true,
+      login: true,
     };
     this.gameDataService.setPlayerInfo(player);
   };

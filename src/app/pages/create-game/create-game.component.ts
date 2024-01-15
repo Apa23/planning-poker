@@ -16,7 +16,7 @@ export class CreateGameComponent {
   ) {
     gameDataService.playerInfo$.subscribe((playerInfo) => {
       if (!playerInfo.login) {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
       }
     });
   }
