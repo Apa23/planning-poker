@@ -24,6 +24,7 @@ describe('TableComponent', () => {
         gameMode: GAMEMODE.ESPECTADOR,
         selectedNumber: 0,
         host: false,
+        login:true
       },
       {
         name: 'test2',
@@ -32,6 +33,8 @@ describe('TableComponent', () => {
         gameMode: GAMEMODE.ESPECTADOR,
         selectedNumber: 0,
         host: false,
+        login:true
+
       },
     ];
     component.displayNewPlayerForm = true;

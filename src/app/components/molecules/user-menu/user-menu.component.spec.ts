@@ -71,6 +71,7 @@ describe('UserMenuComponent', () => {
         selectedNumber: null,
         gameMode: GAMEMODE.JUGADOR,
         host: false,
+        login: true,
       });
     const spy3 = jest.spyOn(component['gameDataService'], 'setPlayerInfo');
     component.onChangeGameMode();
@@ -84,6 +85,7 @@ describe('UserMenuComponent', () => {
         selectedNumber: null,
         gameMode: 'espectador',
         host: false,
+        login: true,
       });
     } else {
       expect(spy3).toHaveBeenCalledWith({
@@ -108,6 +110,7 @@ describe('UserMenuComponent', () => {
         selectedNumber: null,
         gameMode: GAMEMODE.ESPECTADOR,
         host: false,
+        login: true,
       });
     const spy3 = jest.spyOn(component['gameDataService'], 'setPlayerInfo');
     component.onChangeGameMode();
@@ -130,15 +133,16 @@ describe('UserMenuComponent', () => {
         selectedNumber: null,
         gameMode: 'jugador',
         host: false,
+        login: true,
       });
     }
   });
 
   // Testing onExitGame()
   test('should call set default values and navigate to home', () => {
-    const spy1 = jest.spyOn(component['gameDataService'], 'setGameInfo');
-    const spy2 = jest.spyOn(component['gameDataService'], 'setPlayerInfo');
-    const spy3 = jest.spyOn(component['router'], 'navigate');
+    const spy1 = jest.spyOn(component['gameDataService'], 'setGameInfo').mockImplementation();
+    const spy2 = jest.spyOn(component['gameDataService'], 'setPlayerInfo').mockImplementation();
+    const spy3 = jest.spyOn(component['router'], 'navigate').mockImplementation();
     component.onExitGame();
     expect(spy1).toHaveBeenCalledWith({
       displayInviteModal: false,
@@ -151,8 +155,8 @@ describe('UserMenuComponent', () => {
       selectedNumber: null,
       gameMode: GAMEMODE.NONE,
       host: false,
+      login: false,
     });
     expect(spy3).toHaveBeenCalledWith(['/']);
   });
-
 });

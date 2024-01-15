@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Amplify } from 'aws-amplify';
+import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +29,10 @@ import { FooterComponent } from './components/organisms/footer/footer.component'
 import { TableComponent } from './components/organisms/table/table.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginFormComponent } from './components/molecules/login-form/login-form.component';
+
+import awsconfig from '../aws-exports';
+
+Amplify.configure(awsconfig);
 
 @NgModule({
   declarations: [
@@ -58,6 +64,7 @@ import { LoginFormComponent } from './components/molecules/login-form/login-form
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    AmplifyAuthenticatorModule,
   ],
   providers: [GameDataService],
   bootstrap: [AppComponent],
