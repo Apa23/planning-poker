@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { signIn } from 'aws-amplify/auth';
-import { GameDataService } from 'src/app/services/game-data.service';
+import { GameDataService } from '../../../app/services/game-data.service';
 
 @Component({
   selector: 'app-login',

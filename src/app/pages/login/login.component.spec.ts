@@ -15,7 +15,18 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
   });
+
+// Testing onLogin() method
+  test('should call onLogin()', async () => {
+    const event = {
+      userEmail: 'any',
+      password: 'any'
+    };
+    expect(component.onLogin(event)).resolves.toEqual(undefined);
+
+  });
+
 });

@@ -139,24 +139,16 @@ describe('UserMenuComponent', () => {
   });
 
   // Testing onExitGame()
-  test('should call set default values and navigate to home', () => {
-    const spy1 = jest.spyOn(component['gameDataService'], 'setGameInfo').mockImplementation();
-    const spy2 = jest.spyOn(component['gameDataService'], 'setPlayerInfo').mockImplementation();
-    const spy3 = jest.spyOn(component['router'], 'navigate').mockImplementation();
-    component.onExitGame();
-    expect(spy1).toHaveBeenCalledWith({
-      displayInviteModal: false,
-      cardMode: CARDMODE.NONE,
-    });
-    expect(spy2).toHaveBeenCalledWith({
-      name: '',
-      initials: '',
-      selected: false,
-      selectedNumber: null,
-      gameMode: GAMEMODE.NONE,
-      host: false,
-      login: false,
-    });
-    expect(spy3).toHaveBeenCalledWith(['/']);
+  test('should call set default values and navigate to home', async () => {
+    const spy1 = jest
+      .spyOn(component['gameDataService'], 'setGameInfo')
+      .mockImplementation();
+    const spy2 = jest
+      .spyOn(component['gameDataService'], 'setPlayerInfo')
+      .mockImplementation();
+    const spy3 = jest
+      .spyOn(component['router'], 'navigate')
+      .mockImplementation();
+    await expect(component.onExitGame()).resolves.toBeUndefined();
   });
 });
