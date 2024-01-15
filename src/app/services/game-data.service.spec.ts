@@ -23,6 +23,7 @@ describe('GameDataService', () => {
       selected: false,
       selectedNumber: null,
       host: false,
+      login: false,
     });
   });
 });

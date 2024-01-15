@@ -25,6 +25,8 @@ import { UserLogoComponent } from './components/atoms/user-logo/user-logo.compon
 import { ModalComponent } from './components/organisms/modal/modal.component';
 import { FooterComponent } from './components/organisms/footer/footer.component';
 import { TableComponent } from './components/organisms/table/table.component';
+import { LoginComponent } from './pages/login/login.component';
+import { LoginFormComponent } from './components/molecules/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { TableComponent } from './components/organisms/table/table.component';
     ModalComponent,
     FooterComponent,
     TableComponent,
+    LoginComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,

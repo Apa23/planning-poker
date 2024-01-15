@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { GameDataService } from '../../services/game-data.service';
-import { playerInfoInterface } from '../../../config/interfaces/player.interface';
+import { PlayerInfoInterface } from '../../../config/interfaces/player.interface';
 import { playersList } from '../../../config/data/players';
 import { GAMEMODE } from '../../../config/enums/game.enum';
 import {
@@ -21,7 +21,7 @@ export class GameViewComponent {
   gameName: string = '';
   cardMode: string = 'fibonacci';
   cardsList: number[] = FIBONACCI;
-  players: playerInfoInterface[] = playersList;
+  players: PlayerInfoInterface[] = playersList;
   playedNumbers: number[] = [];
   occurrences: any = {};
   avarage: number = 0;
@@ -108,7 +108,7 @@ export class GameViewComponent {
     this.resetSelections();
   }
 
-  onCreatePlayer(player: playerInfoInterface) {
+  onCreatePlayer(player: PlayerInfoInterface) {
     const playerExist = this.players.find(
       (playerItem) => playerItem.name === player.name
     );

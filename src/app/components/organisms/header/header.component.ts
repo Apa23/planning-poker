@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
   @Input() gameName: string = '';
-  @Input() inGame: boolean = false;
+  @Input() inGame: boolean = false;  
+  @Input() inLogin: boolean = false;  
 }

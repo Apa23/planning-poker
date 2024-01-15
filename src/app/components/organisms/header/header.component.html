@@ -4,7 +4,7 @@
     src="./assets/logo-pragma.png"
     alt="logo-pragma"
     title="Crear partida"
-    *ngIf="!inGame"
+    *ngIf="!inGame && !inLogin"
   />
   <ng-container *ngIf="inGame">
     <app-logo
@@ -18,5 +18,13 @@
       size="large"
     />
     <app-user-area class="header__section" />
+  </ng-container>
+  <ng-container *ngIf="inLogin">
+    <app-logo
+      class="header__section"
+      src="./assets/logo-pragma.png"
+      alt="logo-pragma"
+      title="Login"
+    />
   </ng-container>
 </header>

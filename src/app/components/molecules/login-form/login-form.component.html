@@ -1,0 +1,20 @@
+<form class="single-form">
+    <app-input-label [for]="'user-email'" [text]="'Correo'" />
+    <app-input
+      id="user-email"
+      type="text"
+      name="user-email"
+    />
+    <app-input-label [for]="'user-password'" [text]="'Contraseña'" />
+    <app-input
+      id="user-password"
+      type="text"
+      name="user-password"
+    />
+    <app-button
+      id="create-game"
+      class="flex-center"
+      text="Iniciar de sesión"
+      (click)="onLogin()"
+    />
+  </form>

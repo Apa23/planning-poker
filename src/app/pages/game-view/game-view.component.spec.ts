@@ -9,8 +9,8 @@ import {
   SEQUENCE,
 } from '../../../config/data/game.constant';
 import {
-  gameInfoInterface,
-  playerInfoInterface,
+  GameInfoInterface,
+  PlayerInfoInterface,
 } from '../../../config/interfaces/player.interface';
 
 describe('GameViewComponent', () => {
@@ -36,13 +36,14 @@ describe('GameViewComponent', () => {
 
   // Testing the playerInfo$ subscription
   test('should have playerInfo', () => {
-    const playerInfo: playerInfoInterface = {
+    const playerInfo: PlayerInfoInterface = {
       name: 'Test Name',
       initials: 'TN',
       gameMode: GAMEMODE.NONE,
       selected: false,
       selectedNumber: 0,
       host: false,
+      login: false,
     };
     const spy1 = jest.spyOn(component, 'onCreatePlayer').mockImplementation();
     component['gameDataService'].setPlayerInfo(playerInfo);
@@ -51,7 +52,7 @@ describe('GameViewComponent', () => {
 
   // Testing the gameInfo$ subscription
   test('should have gameMode', () => {
-    const gameInfo: gameInfoInterface = {
+    const gameInfo: GameInfoInterface = {
       cardMode: CARDMODE.FIBONACCI,
       displayInviteModal: true,
     };
@@ -62,7 +63,7 @@ describe('GameViewComponent', () => {
   });
 
   test('should have display invitation', () => {
-    const gameInfo: gameInfoInterface = {
+    const gameInfo: GameInfoInterface = {
       cardMode: CARDMODE.FIBONACCI,
       displayInviteModal: true,
     };
