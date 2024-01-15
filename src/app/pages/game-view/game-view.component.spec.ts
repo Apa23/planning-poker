@@ -9,8 +9,8 @@ import {
   SEQUENCE,
 } from '../../../config/data/game.constant';
 import {
-  gameInfoInterface,
-  playerInfoInterface,
+  GameInfoInterface,
+  PlayerInfoInterface,
 } from '../../../config/interfaces/player.interface';
 
 describe('GameViewComponent', () => {
@@ -36,13 +36,14 @@ describe('GameViewComponent', () => {
 
   // Testing the playerInfo$ subscription
   test('should have playerInfo', () => {
-    const playerInfo: playerInfoInterface = {
+    const playerInfo: PlayerInfoInterface = {
       name: 'Test Name',
       initials: 'TN',
       gameMode: GAMEMODE.NONE,
       selected: false,
       selectedNumber: 0,
       host: false,
+      login: false,
     };
     const spy1 = jest.spyOn(component, 'onCreatePlayer').mockImplementation();
     component['gameDataService'].setPlayerInfo(playerInfo);
@@ -51,7 +52,7 @@ describe('GameViewComponent', () => {
 
   // Testing the gameInfo$ subscription
   test('should have gameMode', () => {
-    const gameInfo: gameInfoInterface = {
+    const gameInfo: GameInfoInterface = {
       cardMode: CARDMODE.FIBONACCI,
       displayInviteModal: true,
     };
@@ -62,7 +63,7 @@ describe('GameViewComponent', () => {
   });
 
   test('should have display invitation', () => {
-    const gameInfo: gameInfoInterface = {
+    const gameInfo: GameInfoInterface = {
       cardMode: CARDMODE.FIBONACCI,
       displayInviteModal: true,
     };
@@ -166,6 +167,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -174,6 +176,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -182,6 +185,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
     ];
 
@@ -196,6 +200,7 @@ describe('GameViewComponent', () => {
       name: 'Test 4',
       selected: false,
       selectedNumber: null,
+      login: true,
     });
     expect(component.players.length).toBe(4);
     expect(component.playerName).toBe('Test 4');
@@ -213,6 +218,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -221,6 +227,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -229,6 +236,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
     ];
 
@@ -239,6 +247,7 @@ describe('GameViewComponent', () => {
       name: 'Test 1',
       selected: true,
       selectedNumber: 1,
+      login: true,
     });
     expect(component.players.length).toBe(3);
     expect(component.playerName).toBe('Test 1');
@@ -256,6 +265,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login:true
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -264,6 +274,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: false,
         selectedNumber: null,
+        login:true
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -272,6 +283,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: false,
         selectedNumber: null,
+        login:true
       },
     ];
     component.onSelectionChange('?');
@@ -289,6 +301,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -297,6 +310,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -305,6 +319,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
     ];
     component.onSelectionChange(2);
@@ -322,6 +337,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -330,6 +346,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -338,6 +355,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
     ];
     component.onSelectionChange('pass');
@@ -355,6 +373,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -363,6 +382,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: true,
         selectedNumber: 2,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -371,6 +391,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
     ];
     component.playerSelection = 2;
@@ -390,6 +411,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -398,6 +420,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: true,
         selectedNumber: 2,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -406,6 +429,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
     ];
     const spy = jest
@@ -429,6 +453,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -437,6 +462,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: true,
         selectedNumber: 2,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -445,6 +471,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
     ];
     const spy = jest
@@ -470,6 +497,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -478,6 +506,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: true,
         selectedNumber: 2,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -486,6 +515,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
     ];
     component.checkSelectionDone();
@@ -502,6 +532,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -510,6 +541,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: true,
         selectedNumber: 2,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -518,6 +550,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: true,
         selectedNumber: 3,
+        login: true,
       },
     ];
     component.checkSelectionDone();
@@ -534,6 +567,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -542,6 +576,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: true,
         selectedNumber: 2,
+        login: true,
       },
       {
         gameMode: GAMEMODE.ESPECTADOR,
@@ -550,6 +585,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
     ];
     component.checkSelectionDone();
@@ -566,6 +602,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -574,6 +611,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: true,
         selectedNumber: 2,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -582,6 +620,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: true,
         selectedNumber: 3,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -590,6 +629,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: false,
         selectedNumber: null,
+        login: true,
       },
     ];
     component.onDisplayResult();
@@ -628,6 +668,7 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: true,
         selectedNumber: 1,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -636,6 +677,7 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: true,
         selectedNumber: 2,
+        login: true,
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -644,6 +686,7 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: true,
         selectedNumber: 3,
+        login: true,
       },
     ];
     const spy = jest
@@ -658,6 +701,8 @@ describe('GameViewComponent', () => {
         name: 'Test 1',
         selected: false,
         selectedNumber: null,
+        login:true
+
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -666,6 +711,8 @@ describe('GameViewComponent', () => {
         name: 'Test 2',
         selected: false,
         selectedNumber: null,
+        login:true
+
       },
       {
         gameMode: GAMEMODE.JUGADOR,
@@ -674,6 +721,8 @@ describe('GameViewComponent', () => {
         name: 'Test 3',
         selected: false,
         selectedNumber: null,
+        login:true
+
       },
     ]);
     expect(spy).toHaveBeenCalled();

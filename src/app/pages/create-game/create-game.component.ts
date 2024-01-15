@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GameDataService } from '../../services/game-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-game',
@@ -9,7 +10,16 @@ import { GameDataService } from '../../services/game-data.service';
 export class CreateGameComponent {
   gameName: string = '';
 
-  constructor(private gameDataService: GameDataService) {}
+  constructor(
+    private gameDataService: GameDataService,
+    private router: Router
+  ) {
+    gameDataService.playerInfo$.subscribe((playerInfo) => {
+      if (!playerInfo.login) {
+        this.router.navigate(['/']);
+      }
+    });
+  }
 
   onCreateGame(name: string) {
     this.gameName = name;

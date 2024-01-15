@@ -1,8 +1,8 @@
 import { GAMEMODE } from '../enums/game.enum';
-import { playerInfoInterface } from '../interfaces/player.interface';
+import { PlayerInfoInterface } from '../interfaces/player.interface';
 import { FIBONACCI } from './game.constant';
 
-export const playersList: playerInfoInterface[] = [
+export const playersList: PlayerInfoInterface[] = [
   {
     name: 'John',
     initials: 'Jo',
@@ -10,7 +10,7 @@ export const playersList: playerInfoInterface[] = [
     selected: true,
     selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
     host: false,
-
+    login: true,
   },
   {
     name: 'Dan',
@@ -19,7 +19,7 @@ export const playersList: playerInfoInterface[] = [
     selected: true,
     selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
     host: false,
-
+    login: true,
   },
   {
     name: 'Angie',
@@ -28,7 +28,7 @@ export const playersList: playerInfoInterface[] = [
     selected: false,
     selectedNumber: null,
     host: false,
-
+    login: true,
   },
   {
     name: 'Mark',
@@ -37,7 +37,7 @@ export const playersList: playerInfoInterface[] = [
     selected: true,
     selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
     host: false,
-
+    login: true,
   },
   {
     name: 'Peter',
@@ -46,7 +46,7 @@ export const playersList: playerInfoInterface[] = [
     selected: true,
     selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
     host: false,
-
+    login: true,
   },
   {
     name: 'Luis',
@@ -55,6 +55,7 @@ export const playersList: playerInfoInterface[] = [
     selected: true,
     selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
     host: false,
+    login: true,
   },
   {
     name: 'Maria',
@@ -63,6 +64,6 @@ export const playersList: playerInfoInterface[] = [
     selected: true,
     selectedNumber: FIBONACCI[Math.floor(Math.random() * FIBONACCI.length)],
     host: false,
-
+    login: true,
   },
 ];

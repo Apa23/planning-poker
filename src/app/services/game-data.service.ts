@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CARDMODE, GAMEMODE } from '../../config/enums/game.enum';
 import {
-  gameInfoInterface,
-  playerInfoInterface,
+  GameInfoInterface,
+  PlayerInfoInterface,
 } from '../../config/interfaces/player.interface';
 
 @Injectable({
@@ -12,26 +12,27 @@ import {
 export class GameDataService {
   // Atributes
   private _gameName: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  private _playerInfo: BehaviorSubject<playerInfoInterface> =
-    new BehaviorSubject<playerInfoInterface>({
+  private _playerInfo: BehaviorSubject<PlayerInfoInterface> =
+    new BehaviorSubject<PlayerInfoInterface>({
       name: '',
       initials: '',
       gameMode: GAMEMODE.NONE,
       selected: false,
       selectedNumber: null,
       host: false,
+      login: false,
     });
-  private _gameInfo: BehaviorSubject<gameInfoInterface> =
-    new BehaviorSubject<gameInfoInterface>({
+  private _gameInfo: BehaviorSubject<GameInfoInterface> =
+    new BehaviorSubject<GameInfoInterface>({
       cardMode: CARDMODE.NONE,
       displayInviteModal: false,
     });
 
   // Observables
   public gameName$: Observable<string> = this._gameName.asObservable();
-  public playerInfo$: Observable<playerInfoInterface> =
+  public playerInfo$: Observable<PlayerInfoInterface> =
     this._playerInfo.asObservable();
-  public gameInfo$: Observable<gameInfoInterface> =
+  public gameInfo$: Observable<GameInfoInterface> =
     this._gameInfo.asObservable();
 
   // Functions
@@ -43,19 +44,19 @@ export class GameDataService {
     return this._gameName.getValue();
   }
 
-  public setPlayerInfo(playerInfo: playerInfoInterface): void {
+  public setPlayerInfo(playerInfo: PlayerInfoInterface): void {
     this._playerInfo.next(playerInfo);
   }
 
-  public getPlayerInfo(): playerInfoInterface {
+  public getPlayerInfo(): PlayerInfoInterface {
     return this._playerInfo.getValue();
   }
 
-  public setGameInfo(gameInfo: gameInfoInterface): void {
+  public setGameInfo(gameInfo: GameInfoInterface): void {
     this._gameInfo.next(gameInfo);
   }
 
-  public getGameInfo(): gameInfoInterface {
+  public getGameInfo(): GameInfoInterface {
     return this._gameInfo.getValue();
   }
 }

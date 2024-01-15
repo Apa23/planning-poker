@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { signOut } from 'aws-amplify/auth';
 import { GameDataService } from '../../../services/game-data.service';
 import { CARDMODE, GAMEMODE } from '../../../../config/enums/game.enum';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-menu',
@@ -12,7 +13,10 @@ export class UserMenuComponent {
   @Input() displayUserMenu: boolean = false;
   displayChangeCardMode: boolean = false;
 
-  constructor(private gameDataService: GameDataService, private router: Router) {}
+  constructor(
+    private gameDataService: GameDataService,
+    private router: Router
+  ) {}
 
   onDisplayChangeCardMode() {
     this.displayChangeCardMode = !this.displayChangeCardMode;
@@ -32,20 +36,26 @@ export class UserMenuComponent {
       gameMode: newMode,
     });
   }
-  onExitGame = () => {
-    this.gameDataService.setGameInfo({
-      displayInviteModal: false,
-      cardMode: CARDMODE.NONE,
-    });
-    this.gameDataService.setPlayerInfo({
-      name: '',
-      gameMode: GAMEMODE.NONE,
-      host: false,
-      initials: '',
-      selected: false,
-      selectedNumber: null,
-    });
-    this.router.navigate(['/']);
-
-  };
+  async onExitGame() {
+    try {
+      await signOut();
+      console.log('logout success');
+      this.gameDataService.setGameInfo({
+        displayInviteModal: false,
+        cardMode: CARDMODE.NONE,
+      });
+      this.gameDataService.setPlayerInfo({
+        name: '',
+        gameMode: GAMEMODE.NONE,
+        host: false,
+        initials: '',
+        selected: false,
+        selectedNumber: null,
+        login: false,
+      });
+      this.router.navigate(['/']);
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }

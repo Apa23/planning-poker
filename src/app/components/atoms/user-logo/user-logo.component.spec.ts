@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserLogoComponent } from './user-logo.component';
-import { GameDataService } from '../../../../app/services/game-data.service';
-import { playerInfoInterface } from 'src/config/interfaces/player.interface';
+import { PlayerInfoInterface } from 'src/config/interfaces/player.interface';
 import { GAMEMODE } from '../../../../config/enums/game.enum';
 
 describe('UserLogoComponent', () => {
@@ -41,18 +40,15 @@ describe('UserLogoComponent', () => {
 
   // Testing the playerInfo$ subscription
   test('should have playerInfo', () => {
-    const playerInfo: playerInfoInterface = {
+    const playerInfo: PlayerInfoInterface = {
       name: 'Test Name',
       initials: 'TN',
       gameMode: GAMEMODE.NONE,
       selected: false,
       selectedNumber: 0,
       host: false,
+      login: false,
     };
-    const spy2 = jest.spyOn(
-      component['gameDataService'].playerInfo$,
-      'subscribe'
-    );
     component['gameDataService'].setPlayerInfo(playerInfo);
     expect(component.playerInitials).toEqual('TN');
     expect(component.playerName).toEqual('Test Name');

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { fadeIn, fadeOut } from '../../../../assets/animations';
-import { playerInfoInterface } from '../../../../config/interfaces/player.interface';
+import { PlayerInfoInterface } from '../../../../config/interfaces/player.interface';
 
 @Component({
   selector: 'app-table',
@@ -9,7 +9,7 @@ import { playerInfoInterface } from '../../../../config/interfaces/player.interf
   animations: [fadeIn, fadeOut],
 })
 export class TableComponent {
-  @Input() players: playerInfoInterface[] = [];
+  @Input() players: PlayerInfoInterface[] = [];
   @Input() displayNewPlayerForm: boolean = true;
   @Input() selectionDone: boolean = false;
   @Input() revealResult: boolean = false;
